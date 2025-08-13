@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class FlowerCreation : MonoBehaviour
 {
+    public static FlowerCreation instance;
+
     [SerializeField] private GameObject flowerPrefab;
     [SerializeField] private Vector2 spawnPos;
+    [SerializeField] private Vector2 spawnSize;
     [Space]
     [SerializeField] private List<Sprite> vaseGood;
     [SerializeField] private List<Sprite> stemGood;
@@ -20,7 +23,12 @@ public class FlowerCreation : MonoBehaviour
     [SerializeField, Range(0f,1f)] private float chanceOfBadFlower;
     [SerializeField, Range(1,3)] private int maxBadFlowerParts;
 
-    public void CreateFlower()
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    public GameObject CreateFlower()
     {
         print("Started flower printing");
         bool[] badParts = new bool[5];
@@ -28,8 +36,10 @@ public class FlowerCreation : MonoBehaviour
             badParts = DistributeBadParts(Random.Range(1,maxBadFlowerParts + 1));
         List<Sprite> flowerSprites = GetRandomFlowerSprites(badParts);
         GameObject newFlower = Instantiate(flowerPrefab, spawnPos, Quaternion.identity);
+        newFlower.transform.localScale = spawnSize;
         newFlower.GetComponent<FlowerData>().GetFlowerData(flowerSprites, badParts);
         print("Flower was printed");
+        return newFlower;
     }
 
 
@@ -85,6 +95,12 @@ public class FlowerCreation : MonoBehaviour
         if (randomNumber < chanceOfBadFlower)
             return true;
         return false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(spawnPos, 1f);
     }
 
 }

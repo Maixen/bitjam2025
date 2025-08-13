@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 41c6ddaa57d5daf40a45cd788c929048
+guid: 0bbbba63b4bdd284fa16ec4810e6ec38
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: conveyor_01_0
+      name: pipe_01_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 320
-        height: 39
+        y: 3
+        width: 21
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,40 +124,40 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f8fc65c0b0327f42a7ed8dcce1454a8
-      internalID: 369936847
+      spriteID: 196fde38f95a14d488c2b640382732b4
+      internalID: -221329367
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: conveyor_01_1
+      name: pipe_01_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 55
-        width: 320
+        x: 25
+        y: 20
+        width: 3
         height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0, y: 0.055}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0bcd734537d72ea49aecbec7ba1f6347
-      internalID: -1011364963
+      spriteID: ea775decf73846b42b811227f5fd6d8c
+      internalID: 1822459044
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: conveyor_01_2
+      name: pipe_01_2
       rect:
         serializedVersion: 2
-        x: 7
-        y: 45
-        width: 11
+        x: 25
+        y: 12
+        width: 3
         height: 3
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -166,113 +166,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cb10e31aec076e49bf999edd9f97e12
-      internalID: -423746365
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: conveyor_01_3
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 45
-        width: 11
-        height: 3
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: dc9ee5f38f714664a9ab11d2d8122e2b
-      internalID: 1860632598
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: conveyor_01_4
-      rect:
-        serializedVersion: 2
-        x: 35
-        y: 45
-        width: 9
-        height: 3
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9eac21dc49b74854199754fee7e46256
-      internalID: 440033618
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: conveyor_01_5
-      rect:
-        serializedVersion: 2
-        x: 47
-        y: 45
-        width: 7
-        height: 3
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5e811eca8d694614999d66654cbedcd5
-      internalID: 1014105672
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: conveyor_01_6
-      rect:
-        serializedVersion: 2
-        x: 57
-        y: 45
-        width: 5
-        height: 3
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 38778874c329a8b41baafb763008dea8
-      internalID: -166595179
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: conveyor_01_7
-      rect:
-        serializedVersion: 2
-        x: 65
-        y: 45
-        width: 7
-        height: 3
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cba0118375eae5d45ae22e9bfb36d887
-      internalID: -1027058099
+      spriteID: 1642fdb66bb633b4abbb56d0be184cd9
+      internalID: -1677403766
       vertices: []
       indices: 
       edges: []
@@ -288,14 +183,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      conveyor_01_0: 369936847
-      conveyor_01_1: -1011364963
-      conveyor_01_2: -423746365
-      conveyor_01_3: 1860632598
-      conveyor_01_4: 440033618
-      conveyor_01_5: 1014105672
-      conveyor_01_6: -166595179
-      conveyor_01_7: -1027058099
+      pipe_01_0: -221329367
+      pipe_01_1: 1822459044
+      pipe_01_2: -1677403766
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
