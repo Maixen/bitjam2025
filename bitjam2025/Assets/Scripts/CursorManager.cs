@@ -6,12 +6,19 @@ public class CursorManager : MonoBehaviour
 {
     void Start()
     {
-        
+        Cursor.visible = false;
     }
 
     void Update()
     {
-        transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 mousePos = Input.mousePosition;
+        if (mousePos.x < 0 || mousePos.x > Screen.width || mousePos.y < 0|| mousePos.y > Screen.height)
+        {
+            Cursor.visible = true;
+            return;
+        }
+        Cursor.visible = false;
+        transform.position = (Vector2)Camera.main.ScreenToWorldPoint(mousePos);
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, 1);

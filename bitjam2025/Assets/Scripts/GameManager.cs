@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
     [SerializeField] private Animator pipe_a;
     [SerializeField] private float pipe_time;
 
@@ -13,7 +14,12 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator checklist_a;
     [SerializeField] private float conveyor_time;
     [SerializeField] private float conveyor_speed;
+    private GameObject flower;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Start()
     {
@@ -25,10 +31,22 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(pipe_time);
         pipe_a.SetTrigger("Spawn");
         yield return new WaitForSeconds(flower_time);
-        GameObject flower = FlowerCreation.instance.CreateFlower();
+        flower = FlowerCreation.instance.CreateFlower();
         flower.GetComponent<Animator>().SetTrigger("Drop");
         yield return new WaitForSeconds(conveyor_time);
         conveyor_a.SetTrigger("First");
         checklist_a.SetTrigger("Swap");
+    }
+
+    public IEnumerator GetRidOfPlant(bool plantWasSold)
+    {
+        if (plantWasSold)
+            flower.GetComponent<Animator>().SetTrigger("fgdhjd");
+        else
+            flower.GetComponent<Animator>().SetTrigger("fgdhjd");
+        yield return new WaitForSeconds(pipe_time);
+        Destroy(flower);
+        flower = null;
+        StartCoroutine(NewPlant());
     }
 }

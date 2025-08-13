@@ -39,6 +39,8 @@ public class FlowerCreation : MonoBehaviour
         newFlower.transform.localScale = spawnSize;
         newFlower.GetComponent<FlowerData>().GetFlowerData(flowerSprites, badParts);
         print("Flower was printed");
+        FlowerCheck.instance.FlowerNowExists();
+        FlowerCheck.instance.GetAnswers(badParts);
         return newFlower;
     }
 

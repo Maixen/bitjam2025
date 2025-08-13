@@ -25,6 +25,7 @@ public class FlowerCheck : MonoBehaviour
     public void FlowerNowExists()
     {
         plantExists = true;
+        assumptions = new bool[5];
     }
 
     public void CheckFlower(bool flowerWasSold)
@@ -34,32 +35,19 @@ public class FlowerCheck : MonoBehaviour
         plantExists = false;
         GetAssumptions();
         int badAmount = GetAmountOff(new bool[5]);
-        if (flowerWasSold && badAmount != 0)
+        if (GetAmountOff(assumptions) != 0)
         {
-            print("Fehlerhaftes Sellen");
-            //Sell animation starten
-            return;
+            //GetPoints(-)
         }
-        if (flowerWasSold)
+        else
         {
-            print("Korrektes Sellen");
-            //Sell Animation starten
-            return;
+            //GetPoints(+)
         }
-        if (!flowerWasSold && badAmount == 0)
+        for ( int i = 0; i < allCheckboxes.Count; i++ )
         {
-            print("Fehlerhaftes Dumpen");
-            //Dump animation starten
-            return;
+            allCheckboxes[i].ResetValue();
         }
-        if(!flowerWasSold && GetAmountOff(assumptions) != 0)
-        {
-            print("Teils Fehlerhaftes Dumpen");
-            //Dump animation starten, weniger Punkte?
-            return;
-        }
-        print("Korrektes Dumpen");
-        //Dump animation starten
+        StartCoroutine(GameManager.Instance.GetRidOfPlant(flowerWasSold));
         return;
     }
 
@@ -68,9 +56,11 @@ public class FlowerCheck : MonoBehaviour
         int amount = 0;
         for (int i = 0; i < assumptions.Length; i++)
         {
-            if (arrayToCheck != correctAnswers)
+            print(i + ": " + arrayToCheck[i] + " vs " + correctAnswers[i]);
+            if (arrayToCheck[i] != correctAnswers[i])
                 amount++;
         }
+        print(amount);
         return amount;
     }
 
@@ -78,8 +68,28 @@ public class FlowerCheck : MonoBehaviour
     {
         for (int i = 0;i < allCheckboxes.Count;i++)
         {
+            if(allCheckboxes[i].GetIndex() == 2)
+            {
+                assumptions[2] = allCheckboxes[i].GetValue();
+                assumptions[3] = allCheckboxes[i].GetValue();
+                continue;
+            }
+            if (allCheckboxes[i].GetIndex() == 3)
+            {
+                assumptions[4] = allCheckboxes[i].GetValue();
+                continue;
+            }
             assumptions[allCheckboxes[i].GetIndex()] = allCheckboxes[i].GetValue();
-            allCheckboxes[i].ResetValue();
         }
+    }
+
+    public void GetAnswers(bool[] answers)
+    {
+        if (answers[2]|| answers[3])
+        {
+            answers[2] = true;
+            answers[3] = true;
+        }
+        correctAnswers = answers;
     }
 }
