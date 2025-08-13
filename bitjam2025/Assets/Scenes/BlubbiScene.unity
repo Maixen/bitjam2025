@@ -176,6 +176,7 @@ GameObject:
   - component: {fileID: 303117085}
   - component: {fileID: 303117086}
   - component: {fileID: 303117087}
+  - component: {fileID: 303117088}
   m_Layer: 0
   m_Name: Conveyor belt
   m_TagString: Untagged
@@ -259,12 +260,33 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303117084}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be0b8f9f0c4edfd48af23efd88a1ed7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   repeatAfter: 18.756
+--- !u!95 &303117088
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303117084}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4506596fea5c90147982e83e0b5e555d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &400364764
 GameObject:
   m_ObjectHideFlags: 0
@@ -517,9 +539,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 814990622}
+      - m_Target: {fileID: 1832372559}
         m_TargetAssemblyTypeName: FlowerCreation, Assembly-CSharp
-        m_MethodName: CreateFlower
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1186,7 +1208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flowerPrefab: {fileID: 3710529369626686009, guid: 248c15253b040d246b29d686f230dbb0, type: 3}
-  spawnPos: {x: -6.91, y: 4.32}
+  spawnPos: {x: -6.91, y: -1.62}
   spawnSize: {x: 4, y: 4}
   vaseGood:
   - {fileID: 1780589153, guid: 32553a582c247404f81b3eff38d7b609, type: 3}
@@ -2274,6 +2296,67 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1001 &1296784854
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3710529369626686009, guid: 248c15253b040d246b29d686f230dbb0, type: 3}
+      propertyPath: m_Name
+      value: Flower
+      objectReference: {fileID: 0}
+    - target: {fileID: 3710529369626686009, guid: 248c15253b040d246b29d686f230dbb0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399229702815628461, guid: 248c15253b040d246b29d686f230dbb0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399229702815628461, guid: 248c15253b040d246b29d686f230dbb0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399229702815628461, guid: 248c15253b040d246b29d686f230dbb0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399229702815628461, guid: 248c15253b040d246b29d686f230dbb0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399229702815628461, guid: 248c15253b040d246b29d686f230dbb0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399229702815628461, guid: 248c15253b040d246b29d686f230dbb0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399229702815628461, guid: 248c15253b040d246b29d686f230dbb0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399229702815628461, guid: 248c15253b040d246b29d686f230dbb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399229702815628461, guid: 248c15253b040d246b29d686f230dbb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5399229702815628461, guid: 248c15253b040d246b29d686f230dbb0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 248c15253b040d246b29d686f230dbb0, type: 3}
 --- !u!1 &1332420833
 GameObject:
   m_ObjectHideFlags: 0
@@ -3893,11 +3976,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14901e00a42946a48b5edeeaed66f338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pipe_a: {fileID: 0}
-  pipe_time: 0
-  flower_time: 0
-  conveyor_time: 0
-  conveyorEnd_time: 0
+  pipe_a: {fileID: 1266489085}
+  pipe_time: 1
+  flower_time: 1.5
+  conveyor_a: {fileID: 303117088}
+  conveyor_time: 1
+  conveyor_speed: 5
 --- !u!4 &1832372561
 Transform:
   m_ObjectHideFlags: 0
@@ -4070,3 +4154,4 @@ SceneRoots:
   - {fileID: 400364766}
   - {fileID: 4291152886752519936}
   - {fileID: 1832372561}
+  - {fileID: 1296784854}

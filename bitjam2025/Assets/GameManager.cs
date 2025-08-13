@@ -9,8 +9,16 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private float flower_time;
 
+    [SerializeField] private Animator conveyor_a;
+    [SerializeField] private Animator checklist_a;
     [SerializeField] private float conveyor_time;
-    [SerializeField] private float conveyorEnd_time;
+    [SerializeField] private float conveyor_speed;
+
+
+    private void Start()
+    {
+        StartCoroutine(NewPlant());
+    }
 
     public IEnumerator NewPlant()
     {
@@ -18,9 +26,9 @@ public class GameManager : MonoBehaviour
         pipe_a.SetTrigger("Spawn");
         yield return new WaitForSeconds(flower_time);
         GameObject flower = FlowerCreation.instance.CreateFlower();
+        flower.GetComponent<Animator>().SetTrigger("Drop");
         yield return new WaitForSeconds(conveyor_time);
-        ConveyorBeltAnimation.instance.StartBelt(1f);
-        yield return new WaitForSeconds(conveyorEnd_time);
-        ConveyorBeltAnimation.instance.StopBelt();
+        conveyor_a.SetTrigger("First");
+        checklist_a.SetTrigger("Swap");
     }
 }

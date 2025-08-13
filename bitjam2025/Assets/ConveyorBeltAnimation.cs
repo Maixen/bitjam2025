@@ -16,7 +16,7 @@ public class ConveyorBeltAnimation : MonoBehaviour
 
     private void Start()
     {
-        StartBelt(1f);
+        //StartBelt(1f);
     }
 
     private void Update()
