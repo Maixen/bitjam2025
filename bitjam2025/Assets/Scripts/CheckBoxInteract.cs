@@ -6,10 +6,17 @@ public class CheckBoxInteract : MonoBehaviour
 {
     [SerializeField] int checklistIndex;
     [SerializeField] private bool checked_Off = false;
+    [SerializeField] private GameObject checkIcon;
+
+    private void Start()
+    {
+        checkIcon.SetActive(checked_Off);
+    }
 
     public void WasClicked()
     {
         checked_Off = !checked_Off;
+        checkIcon.SetActive(checked_Off);
     }
 
     public bool GetValue()
@@ -25,5 +32,6 @@ public class CheckBoxInteract : MonoBehaviour
     public void ResetValue()
     {
         checked_Off = false;
+        checkIcon.SetActive(checked_Off);
     }
 }
