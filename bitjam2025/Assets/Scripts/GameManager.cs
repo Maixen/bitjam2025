@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
         flower = FlowerCreation.instance.CreateFlower();
         flower.GetComponent<Animator>().SetTrigger("Drop");
         yield return new WaitForSeconds(conveyor_time);
+        FlowerCheck.instance.FlowerNowExists();
         conveyor_a.SetTrigger("First");
         checklist_a.SetTrigger("Swap");
     }

@@ -38,10 +38,12 @@ public class FlowerCheck : MonoBehaviour
         if (GetAmountOff(assumptions) != 0)
         {
             //GetPoints(-)
+            print("Wrong guess");
         }
         else
         {
             //GetPoints(+)
+            print("Right guess");
         }
         for ( int i = 0; i < allCheckboxes.Count; i++ )
         {

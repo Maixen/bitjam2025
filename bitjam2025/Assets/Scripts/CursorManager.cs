@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class CursorManager : MonoBehaviour
 {
+    private ParticleSystem.EmissionModule emission;
+    private Vector2 previousMousePos;
+    [SerializeField] private float trailActivateTreshhold;
     void Start()
     {
         Cursor.visible = false;
+        emission = gameObject.GetComponentInChildren<ParticleSystem>().emission;
+        previousMousePos = Vector2.zero;
     }
 
     void Update()
@@ -15,8 +20,14 @@ public class CursorManager : MonoBehaviour
         if (mousePos.x < 0 || mousePos.x > Screen.width || mousePos.y < 0|| mousePos.y > Screen.height)
         {
             Cursor.visible = true;
+            emission.enabled = false;
             return;
         }
+        if((mousePos - previousMousePos).magnitude > trailActivateTreshhold)
+            emission.enabled = true;
+        else
+            emission.enabled = false;
+            previousMousePos = mousePos;
         Cursor.visible = false;
         transform.position = (Vector2)Camera.main.ScreenToWorldPoint(mousePos);
         if (Input.GetMouseButtonDown(0))
