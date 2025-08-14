@@ -8,6 +8,9 @@ TagManager:
   - Sell
   - Checkbox
   - WaterGame
+  - MinigameAccess
+  - BugGame
+  - Bug
   layers:
   - Default
   - TransparentFX

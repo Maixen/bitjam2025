@@ -51,7 +51,7 @@ public class FlowerData : MonoBehaviour
         if (id == 0)
             waterMinigame.IsPlayable();
         if (id == 1)
-            // später mehr
+            parasiteMinigame.IsPlayable();
             return;
     }
 }

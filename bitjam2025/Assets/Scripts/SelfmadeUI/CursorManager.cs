@@ -53,7 +53,7 @@ public class CursorManager : MonoBehaviour
             }
             if (hit.collider.CompareTag("MinigameAccess"))
             {
-                print("WaterGame hit");
+                print("Minigame Button pressed");
                 hit.collider.gameObject.GetComponent<SetMinigameView>().ToggleMinigame();
                 return;
             }
@@ -61,6 +61,18 @@ public class CursorManager : MonoBehaviour
             {
                 print("WaterGame hit");
                 hit.collider.gameObject.GetComponent<WaterMinigame>().StartMinigame();
+                return;
+            }
+            if (hit.collider.CompareTag("BugGame"))
+            {
+                print("BugGame hit");
+                hit.collider.gameObject.GetComponent<ParasiteMinigame>().StartMinigame();
+                return;
+            }
+            if (hit.collider.CompareTag("Bug"))
+            {
+                print("Bug hit");
+                hit.collider.gameObject.GetComponent<BugBehaviour>().GotClicked();
                 return;
             }
         }

@@ -818,7 +818,7 @@ GameObject:
   - component: {fileID: 3676485131196687398}
   m_Layer: 5
   m_Name: Parasites
-  m_TagString: MinigameAccess
+  m_TagString: BugGame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -896,6 +896,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d6757dbb7ede243aa75cc6c4b9e14b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bugPrefab: {fileID: 2068725706967443475, guid: 523a20c9a57fde04dab42463b9307c03, type: 3}
+  bugParticles: {fileID: 329722262367491057}
+  playable: 0
+  gameHasStarted: 0
+  bugSpawnAmountRange: {x: 10, y: 25}
+  bugSpawnCount: 0
+  bugsLeft: 0
+  bugSpawnTimeRange: {x: 0.2, y: 0.8}
+  nextBugSpawnsIn: 0
+  xBugSpawnBoundaries: {x: -2, y: 2}
+  yBugSpawnBoundaries: {x: -1.5, y: 1.5}
 --- !u!1 &6309619316692240730
 GameObject:
   m_ObjectHideFlags: 0
