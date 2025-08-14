@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class FlowerData : MonoBehaviour
 {
+    public static FlowerData instance;
     [SerializeField] private SpriteRenderer vaseSprite;
     [SerializeField] private SpriteRenderer stemSprite;
     [SerializeField] private SpriteRenderer leafLSprite;
     [SerializeField] private SpriteRenderer leafRSprite;
     [SerializeField] private SpriteRenderer blossomSprite;
+    [SerializeField] private WaterMinigame waterMinigame;
+    [SerializeField] private ParasiteMinigame parasiteMinigame;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     public void GetFlowerData(List<Sprite> flowerSprites, bool[] parts)
     {
@@ -22,5 +30,28 @@ public class FlowerData : MonoBehaviour
     private void SetFlowerPartSprite(ref SpriteRenderer sR, Sprite newSprite)
     {
         sR.sprite = newSprite;
+    }
+
+    public void ActivateMinigame(int id)
+    {
+        var script = waterMinigame.gameObject;
+        if(id == 0)
+             script = waterMinigame.gameObject;
+        if(id == 1)
+            script = parasiteMinigame.gameObject;
+        if (script.activeSelf)
+            script.SetActive(false);
+        else 
+            script.SetActive(true);
+    }
+
+    public void UnlockMinigame(int id)
+    {
+        var script = waterMinigame;
+        if (id == 0)
+            waterMinigame.IsPlayable();
+        if (id == 1)
+            // später mehr
+            return;
     }
 }

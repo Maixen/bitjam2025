@@ -33,6 +33,7 @@ public class CursorManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, 1);
+            //print(hit.collider.gameObject.name);
             if (hit.collider == null)
                 return;
             if(hit.collider.CompareTag("Checkbox"))
@@ -48,6 +49,18 @@ public class CursorManager : MonoBehaviour
             if(hit.collider.CompareTag("Dump"))
             {
                 FlowerCheck.instance.CheckFlower(false);
+                return;
+            }
+            if (hit.collider.CompareTag("MinigameAccess"))
+            {
+                print("WaterGame hit");
+                hit.collider.gameObject.GetComponent<SetMinigameView>().ToggleMinigame();
+                return;
+            }
+            if (hit.collider.CompareTag("WaterGame"))
+            {
+                print("WaterGame hit");
+                hit.collider.gameObject.GetComponent<WaterMinigame>().StartMinigame();
                 return;
             }
         }

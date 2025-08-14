@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FlowerCreation : MonoBehaviour
@@ -22,6 +23,14 @@ public class FlowerCreation : MonoBehaviour
     [Space]
     [SerializeField, Range(0f,1f)] private float chanceOfBadFlower;
     [SerializeField, Range(1,3)] private int maxBadFlowerParts;
+    [SerializeField] private bool minigamesAllowed;
+    [SerializeField, Range(1, 3)] private int maxMinigames;
+
+    enum Minigames
+    {
+        Water = 0,
+        Bugs = 1,
+    }
 
     private void Awake()
     {
@@ -38,11 +47,26 @@ public class FlowerCreation : MonoBehaviour
         GameObject newFlower = Instantiate(flowerPrefab, spawnPos, Quaternion.identity);
         newFlower.transform.localScale = spawnSize;
         newFlower.GetComponent<FlowerData>().GetFlowerData(flowerSprites, badParts);
+        if (minigamesAllowed)
+            TurnOnMinigames(SelectRandomMinigames(Random.Range(1, maxMinigames)), ref newFlower);
         print("Flower was printed");
         FlowerCheck.instance.GetAnswers(badParts);
         return newFlower;
     }
 
+    private void TurnOnMinigames(List<Minigames> games, ref GameObject flower)
+    {
+        for(int i = 0; i < games.Count;i++)
+            flower.GetComponent<FlowerData>().UnlockMinigame((int)games[i]);
+    }
+
+    List<Minigames> SelectRandomMinigames(int amountOfGames)
+    {
+        List<Minigames> games = new List<Minigames>();
+        for (int i = 0; i < amountOfGames; i++)
+            games.Add((Minigames)Random.Range(0, 2));
+        return games;
+    }
 
     List<Sprite> GetRandomFlowerSprites(bool[] isBadPart)
     {
