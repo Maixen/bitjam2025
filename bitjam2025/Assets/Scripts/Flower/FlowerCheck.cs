@@ -35,21 +35,24 @@ public class FlowerCheck : MonoBehaviour
         plantExists = false;
         GetAssumptions();
         int badAmount = GetAmountOff(new bool[5]);
+        bool correct;
         if (GetAmountOff(assumptions) != 0)
         {
             //GetPoints(-)
             print("Wrong guess");
+            correct = false;
         }
         else
         {
             //GetPoints(+)
             print("Right guess");
+            correct = true;
         }
         for ( int i = 0; i < allCheckboxes.Count; i++ )
         {
             allCheckboxes[i].ResetValue();
         }
-        StartCoroutine(GameManager.Instance.GetRidOfPlant(flowerWasSold));
+        StartCoroutine(GameManager.Instance.GetRidOfPlant(flowerWasSold, correct));
         return;
     }
 
