@@ -7,6 +7,7 @@ TagManager:
   - Dump
   - Sell
   - Checkbox
+  - MinigameAccess
   layers:
   - Default
   - TransparentFX
