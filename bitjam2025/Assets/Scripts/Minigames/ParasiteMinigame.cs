@@ -7,6 +7,7 @@ public class ParasiteMinigame : MonoBehaviour
     [SerializeField] private GameObject bugPrefab;
     [SerializeField] private ParticleSystem bugParticles;
     [Space]
+    [SerializeField] private List<Sprite> bugSprites;
     [SerializeField] private bool playable;
     [SerializeField] private bool gameHasStarted;
     [SerializeField] private Vector2 bugSpawnAmountRange;
@@ -63,6 +64,7 @@ public class ParasiteMinigame : MonoBehaviour
     void SpawnBug(Vector2 spawnPos)
     {
         GameObject newBug = Instantiate(bugPrefab, (Vector2)transform.position + spawnPos, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+        newBug.GetComponent<SpriteRenderer>().sprite = bugSprites[Random.Range(0, bugSprites.Count)];
         newBug.GetComponent<BugBehaviour>().minigameParent = this;
         bugSpawnCount--;
         bugsLeft++;

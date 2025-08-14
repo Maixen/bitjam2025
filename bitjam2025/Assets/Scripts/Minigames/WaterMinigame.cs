@@ -25,10 +25,11 @@ public class WaterMinigame : MonoBehaviour
     [SerializeField] private GameObject waterMeter;
     [SerializeField] private ParticleSystem thirstParticles;
 
-    public void Start()
+    public void Awake()
     {
         thirstParticles.gameObject.SetActive(false);
     }
+
     public void StartMinigame()
     {
         if (gameHasStarted || !playable)
@@ -48,7 +49,7 @@ public class WaterMinigame : MonoBehaviour
     public void IsPlayable()
     {
         playable = true;
-        thirstParticles.gameObject.SetActive(playable);
+        thirstParticles.gameObject.SetActive(true);
     }
     private void CheckResult()
     {

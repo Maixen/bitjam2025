@@ -5806,6 +5806,9 @@ MonoBehaviour:
   sell_offset: 3
   dump_ps: {fileID: 2126162640}
   dump_offset: 0.85
+  minigameButtons:
+  - {fileID: 1938923244}
+  - {fileID: 987908683}
 --- !u!4 &1832372561
 Transform:
   m_ObjectHideFlags: 0

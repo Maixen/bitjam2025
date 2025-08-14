@@ -34,20 +34,14 @@ public class FlowerData : MonoBehaviour
 
     public void ActivateMinigame(int id)
     {
-        var script = waterMinigame.gameObject;
         if(id == 0)
-             script = waterMinigame.gameObject;
-        if(id == 1)
-            script = parasiteMinigame.gameObject;
-        if (script.activeSelf)
-            script.SetActive(false);
-        else 
-            script.SetActive(true);
+            waterMinigame.gameObject.SetActive(!waterMinigame.gameObject.activeSelf);
+        if (id == 1)
+            parasiteMinigame.gameObject.SetActive(!waterMinigame.gameObject.activeSelf);
     }
 
     public void UnlockMinigame(int id)
     {
-        var script = waterMinigame;
         if (id == 0)
             waterMinigame.IsPlayable();
         if (id == 1)
