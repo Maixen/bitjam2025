@@ -41,10 +41,16 @@ public class ColorChanger : MonoBehaviour
         backgroundMaterial.SetColor("_TargetColor", backgroundColors[currentPalette]);
     }
 
-    public void SetMinigamePalette(int paletteindex)
+    public void SetMinigamePalette(int paletteindex, bool turnOn)
     {
         if (!paletteChangeAllowed)
             return;
+        if (!turnOn)
+        {
+            ChangePalette(currentPalette);
+            print("Works");
+            return;
+        }
         primaryMaterial.SetColor("_TargetColor", primaryMinigameColors[paletteindex]);
         backgroundMaterial.SetColor("_TargetColor", backgroundMinigameColors[paletteindex]);
     }

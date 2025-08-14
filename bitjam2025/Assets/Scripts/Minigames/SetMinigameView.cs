@@ -14,8 +14,9 @@ public class SetMinigameView : MonoBehaviour
 
     public void ToggleMinigame()
     {
-        FlowerData.instance.ActivateMinigame((int)minigameType);
-        ColorChanger.instance.SetMinigamePalette((int)minigameType);
+        isActive = !isActive;
+        FlowerData.instance?.ActivateMinigame((int)minigameType);
+        ColorChanger.instance.SetMinigamePalette((int)minigameType, isActive);
     }
 
 }

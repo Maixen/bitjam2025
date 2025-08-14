@@ -57,7 +57,11 @@ public class FlowerCreation : MonoBehaviour
     private void TurnOnMinigames(List<Minigames> games, ref GameObject flower)
     {
         for(int i = 0; i < games.Count;i++)
+        {
             flower.GetComponent<FlowerData>().UnlockMinigame((int)games[i]);
+            print("Minigame " + games[i]);
+        }
+            
     }
 
     List<Minigames> SelectRandomMinigames(int amountOfGames)

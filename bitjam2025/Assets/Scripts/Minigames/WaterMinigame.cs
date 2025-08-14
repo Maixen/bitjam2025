@@ -42,7 +42,7 @@ public class WaterMinigame : MonoBehaviour
         water.transform.localPosition = waterStartPos;
         water.transform.localScale = waterStartFill;
         waterMeter.SetActive(true);
-        fillPercentPerSecond = fillPercentPerSecondBase * Random.Range(fillPercentPerSecondBase / (maxFillSpeedOffset * 100 + 1), fillPercentPerSecondBase * (maxFillSpeedOffset * 100 + 1));
+        fillPercentPerSecond = fillPercentPerSecondBase * Random.Range(fillPercentPerSecondBase, fillPercentPerSecondBase + maxFillSpeedOffset);
     }
 
     public void IsPlayable()
@@ -71,18 +71,17 @@ public class WaterMinigame : MonoBehaviour
         if (!gameHasStarted)
             return;
         print("game is running");
-        float percentGained = fillPercentPerSecond * 0.01f * Time.deltaTime;
+        float percentGained = fillPercentPerSecond * 001f * Time.deltaTime;
         currentFillPercent += percentGained;
         float waterScalesBy = (waterEndPos.y - waterStartPos.y) * percentGained;
-        water.transform.localScale += Vector3.up * waterScalesBy;
-        water.transform.localPosition += Vector3.up * 0.5f * waterScalesBy;
         if (currentFillPercent >= 1)
         {
             currentFillPercent -= 1;
             water.transform.localPosition = waterStartPos;
             water.transform.localScale = waterStartFill;
         }
-            
+        water.transform.localScale += Vector3.up * waterScalesBy;
+        water.transform.localPosition += Vector3.up * 0.5f * waterScalesBy;
         if (Input.GetMouseButtonDown(0))
            CheckResult();
     }
