@@ -113,9 +113,9 @@ TextureImporter:
       name: leaves_w_animations_01_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 16
+        width: 15
         height: 32
       alignment: 5
       pivot: {x: 1, y: 0.5}
@@ -134,9 +134,9 @@ TextureImporter:
       name: leaves_w_animations_01_1
       rect:
         serializedVersion: 2
-        x: 16
+        x: 17
         y: 0
-        width: 16
+        width: 15
         height: 32
       alignment: 5
       pivot: {x: 1, y: 0.5}
@@ -155,9 +155,9 @@ TextureImporter:
       name: leaves_w_animations_01_2
       rect:
         serializedVersion: 2
-        x: 32
+        x: 33
         y: 0
-        width: 16
+        width: 15
         height: 32
       alignment: 5
       pivot: {x: 1, y: 0.5}
@@ -176,9 +176,9 @@ TextureImporter:
       name: leaves_w_animations_01_3
       rect:
         serializedVersion: 2
-        x: 48
+        x: 49
         y: 0
-        width: 16
+        width: 15
         height: 32
       alignment: 5
       pivot: {x: 1, y: 0.5}
@@ -197,9 +197,9 @@ TextureImporter:
       name: leaves_w_animations_01_4
       rect:
         serializedVersion: 2
-        x: 64
+        x: 65
         y: 0
-        width: 16
+        width: 15
         height: 32
       alignment: 5
       pivot: {x: 1, y: 0.5}
@@ -218,9 +218,9 @@ TextureImporter:
       name: leaves_w_animations_01_5
       rect:
         serializedVersion: 2
-        x: 80
+        x: 81
         y: 0
-        width: 16
+        width: 15
         height: 32
       alignment: 5
       pivot: {x: 1, y: 0.5}
@@ -239,9 +239,9 @@ TextureImporter:
       name: leaves_w_animations_01_6
       rect:
         serializedVersion: 2
-        x: 96
+        x: 97
         y: 0
-        width: 16
+        width: 15
         height: 32
       alignment: 5
       pivot: {x: 1, y: 0.5}
@@ -260,9 +260,9 @@ TextureImporter:
       name: leaves_w_animations_01_7
       rect:
         serializedVersion: 2
-        x: 112
+        x: 113
         y: 0
-        width: 16
+        width: 15
         height: 32
       alignment: 5
       pivot: {x: 1, y: 0.5}
@@ -281,9 +281,9 @@ TextureImporter:
       name: leaves_w_animations_01_8
       rect:
         serializedVersion: 2
-        x: 128
+        x: 129
         y: 0
-        width: 16
+        width: 15
         height: 32
       alignment: 5
       pivot: {x: 1, y: 0.5}
@@ -302,9 +302,9 @@ TextureImporter:
       name: leaves_w_animations_01_9
       rect:
         serializedVersion: 2
-        x: 144
+        x: 145
         y: 0
-        width: 16
+        width: 15
         height: 32
       alignment: 5
       pivot: {x: 1, y: 0.5}
@@ -323,9 +323,9 @@ TextureImporter:
       name: leaves_w_animations_01_10
       rect:
         serializedVersion: 2
-        x: 160
+        x: 161
         y: 0
-        width: 16
+        width: 15
         height: 32
       alignment: 5
       pivot: {x: 1, y: 0.5}
@@ -344,9 +344,9 @@ TextureImporter:
       name: leaves_w_animations_01_11
       rect:
         serializedVersion: 2
-        x: 176
+        x: 177
         y: 0
-        width: 16
+        width: 15
         height: 32
       alignment: 5
       pivot: {x: 1, y: 0.5}
