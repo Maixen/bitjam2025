@@ -14,6 +14,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator checklist_a;
     [SerializeField] private float conveyor_time;
     [SerializeField] private float conveyor_speed;
+
+    [SerializeField] private float conveyorLast_time;
+    [SerializeField] private float conveyorBack_time;
+
+    [SerializeField] private float cooldown_time;
     private GameObject flower;
 
     private void Awake()
@@ -41,10 +46,18 @@ public class GameManager : MonoBehaviour
     public IEnumerator GetRidOfPlant(bool plantWasSold)
     {
         if (plantWasSold)
-            flower.GetComponent<Animator>().SetTrigger("fgdhjd");
+        {
+            flower.GetComponent<Animator>().SetTrigger("Sell");
+            yield return new WaitForSeconds(conveyorLast_time);
+            conveyor_a.SetTrigger("Last");
+        }
         else
-            flower.GetComponent<Animator>().SetTrigger("fgdhjd");
-        yield return new WaitForSeconds(pipe_time);
+        {
+            flower.GetComponent<Animator>().SetTrigger("Dump");
+            yield return new WaitForSeconds(conveyorBack_time);
+            conveyor_a.SetTrigger("Back");
+        }
+        yield return new WaitForSeconds(cooldown_time);
         Destroy(flower);
         flower = null;
         StartCoroutine(NewPlant());

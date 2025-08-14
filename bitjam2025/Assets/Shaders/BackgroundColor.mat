@@ -32,9 +32,5 @@ Material:
     - _Tolerance: 0.001
     m_Colors:
     - _OriginalColor: {r: 1, g: 1, b: 1, a: 1}
-<<<<<<< Updated upstream
     - _TargetColor: {r: 0.6862745, g: 0.43529415, b: 0, a: 1}
-=======
-    - _TargetColor: {r: 0, g: 0, b: 0, a: 1}
->>>>>>> Stashed changes
   m_BuildTextureStacks: []
