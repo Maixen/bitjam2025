@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     [Space]
     private GameObject flower;
     [SerializeField] private bool minigameIsPlayed;
+    [SerializeField] private MoneyDisplayScript moneyOwnedDiplay;
 
     private void Awake()
     {
@@ -111,5 +112,10 @@ public class GameManager : MonoBehaviour
     public ref List<SetMinigameView> GetMinigameButtons()
     {
         return ref minigameButtons;
+    }
+
+    public void AddMoney(int moneyAdded)
+    {
+        moneyOwnedDiplay.ChangeValueBy(moneyAdded);
     }
 }

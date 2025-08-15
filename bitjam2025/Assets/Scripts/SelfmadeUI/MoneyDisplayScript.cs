@@ -17,6 +17,11 @@ public class MoneyDisplayScript : MonoBehaviour
         number = newValue;
     }
 
+    public void ChangeValueBy(int addedValue)
+    {
+        number += addedValue;
+    }
+
     public int GetValue()
     {
         return number;

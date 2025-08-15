@@ -39,12 +39,14 @@ public class CursorManager : MonoBehaviour
                 return;
             if(hit.collider.CompareTag("Checkbox"))
             {
-                hit.collider.gameObject.GetComponent<CheckBoxInteract>().WasClicked();
+                if(!GameManager.Instance.IsMinigamePlayed())
+                    hit.collider.gameObject.GetComponent<CheckBoxInteract>().WasClicked();
                 return;
             }
             if(hit.collider.CompareTag("Sell"))
             {
-                FlowerCheck.instance.CheckFlower(true);
+                if (!GameManager.Instance.IsMinigamePlayed())
+                    FlowerCheck.instance.CheckFlower(true);
                 return;
             }
             if(hit.collider.CompareTag("Dump"))

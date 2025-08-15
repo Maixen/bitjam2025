@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 1434691210225160998}
   - component: {fileID: 3122011647697591354}
   m_Layer: 0
-  m_Name: MoneyOwned
+  m_Name: MoneyDisplay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -217,8 +217,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2966c101b1bf7ab4f82d1963f5b8355f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberRenderers: []
-  numberSprites: []
+  numberRenderers:
+  - {fileID: 2464677258383854401}
+  - {fileID: 8618853981610836677}
+  - {fileID: 4688451462211644252}
+  - {fileID: 2805146006893438094}
+  - {fileID: 7065445788838799639}
+  numberSprites:
+  - {fileID: -1969594, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: -171394892, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: 1120116241, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: -1534294089, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: 1965735903, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: 1952219035, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: 1607218076, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: -600422904, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: 1643313659, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: -1366588795, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
   number: 0
   numberOnDisplay: 0
   numberCountUpsPerSecond: 0
