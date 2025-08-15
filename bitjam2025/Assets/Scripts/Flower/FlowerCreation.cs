@@ -30,6 +30,8 @@ public class FlowerCreation : MonoBehaviour
     {
         Water = 0,
         Bugs = 1,
+        Soul = 2,
+        None = -1
     }
 
     private void Awake()
@@ -56,19 +58,19 @@ public class FlowerCreation : MonoBehaviour
 
     private void TurnOnMinigames(List<Minigames> games, ref GameObject flower)
     {
+        SendMinigameInfo(games);
         for(int i = 0; i < games.Count;i++)
         {
             flower.GetComponent<FlowerData>().UnlockMinigame((int)games[i]);
             print("Minigame " + games[i]);
         }
-            
     }
 
     List<Minigames> SelectRandomMinigames(int amountOfGames)
     {
         List<Minigames> games = new List<Minigames>();
         for (int i = 0; i < amountOfGames; i++)
-            games.Add((Minigames)Random.Range(0, 2));
+            games.Add((Minigames)Random.Range(0, 3));
         return games;
     }
 
@@ -131,5 +133,11 @@ public class FlowerCreation : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(spawnPos, 1f);
     }
-
+    private void SendMinigameInfo(List<Minigames> minigamesList)
+    {
+        bool[] minigames = new bool[3];
+        for (int i = 0; i < minigames.Length; i++)
+            continue;
+        FlowerCheck.instance.SetMinigamesToBeBeaten(null);
+    }
 }

@@ -12,6 +12,7 @@ public class FlowerData : MonoBehaviour
     [SerializeField] private SpriteRenderer blossomSprite;
     [SerializeField] private WaterMinigame waterMinigame;
     [SerializeField] private ParasiteMinigame parasiteMinigame;
+    [SerializeField] private SoulMinigame soulMinigame;
 
     private void Awake()
     {
@@ -37,7 +38,9 @@ public class FlowerData : MonoBehaviour
         if(id == 0)
             waterMinigame.gameObject.SetActive(!waterMinigame.gameObject.activeSelf);
         if (id == 1)
-            parasiteMinigame.gameObject.SetActive(!waterMinigame.gameObject.activeSelf);
+            parasiteMinigame.gameObject.SetActive(!parasiteMinigame.gameObject.activeSelf);
+        if (id == 2)
+            soulMinigame.gameObject.SetActive(!soulMinigame.gameObject.activeSelf);
     }
 
     public void UnlockMinigame(int id)
@@ -46,6 +49,8 @@ public class FlowerData : MonoBehaviour
             waterMinigame.IsPlayable();
         if (id == 1)
             parasiteMinigame.IsPlayable();
+        if (id == 2)
+            soulMinigame.IsPlayable();
             return;
     }
 }

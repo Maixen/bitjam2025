@@ -24,6 +24,7 @@ public class WaterMinigame : MonoBehaviour
     [SerializeField] private GameObject water;
     [SerializeField] private GameObject waterMeter;
     [SerializeField] private ParticleSystem thirstParticles;
+    private Animator plantAnimator;
 
     public void Awake()
     {
@@ -34,6 +35,7 @@ public class WaterMinigame : MonoBehaviour
     {
         if (gameHasStarted || !playable)
             return;
+        GameManager.Instance.MinigameWasToggled();
         gameHasStarted = true;
         slider.transform.localPosition = sliderStartPos;
         percentToFill = Random.Range(0.5f, 0.9f);
@@ -44,12 +46,15 @@ public class WaterMinigame : MonoBehaviour
         water.transform.localScale = waterStartFill;
         waterMeter.SetActive(true);
         fillPercentPerSecond = fillPercentPerSecondBase * Random.Range(fillPercentPerSecondBase, fillPercentPerSecondBase + maxFillSpeedOffset);
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        plantAnimator.SetTrigger("Water");
     }
 
     public void IsPlayable()
     {
         playable = true;
         thirstParticles.gameObject.SetActive(true);
+        plantAnimator = FlowerData.instance.gameObject.GetComponent<Animator>();
     }
     private void CheckResult()
     {
@@ -57,11 +62,13 @@ public class WaterMinigame : MonoBehaviour
         {
             //Game is won
             print("Won");
+            GameManager.Instance.MinigameWasToggled();
             gameHasStarted = false;
             gameObject.SetActive(false);
             waterMeter.SetActive(false);
             thirstParticles.gameObject.SetActive(false);
             playable = false;
+            plantAnimator.SetTrigger("End");
             return;
         }
         return;

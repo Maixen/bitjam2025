@@ -6,6 +6,7 @@ public class CursorManager : MonoBehaviour
 {
     private ParticleSystem.EmissionModule emission;
     private Vector2 previousMousePos;
+    [SerializeField] private Vector2 cursorOffset;
     [SerializeField] private float trailActivateTreshhold;
     void Start()
     {
@@ -29,7 +30,7 @@ public class CursorManager : MonoBehaviour
             emission.enabled = false;
             previousMousePos = mousePos;
         Cursor.visible = false;
-        transform.position = (Vector2)Camera.main.ScreenToWorldPoint(mousePos);
+        transform.position = (Vector2)Camera.main.ScreenToWorldPoint(mousePos) + cursorOffset;
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, 1);
@@ -73,6 +74,12 @@ public class CursorManager : MonoBehaviour
             {
                 print("Bug hit");
                 hit.collider.gameObject.GetComponent<BugBehaviour>().GotClicked();
+                return;
+            }
+            if (hit.collider.CompareTag("SoulGame"))
+            {
+                print("SoulGame hit");
+                hit.collider.gameObject.GetComponent<SoulMinigame>().StartMinigame();
                 return;
             }
         }

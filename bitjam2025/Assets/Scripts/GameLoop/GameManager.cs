@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<SetMinigameView> minigameButtons;
     [Space]
     private GameObject flower;
+    [SerializeField] private bool minigameIsPlayed;
 
     private void Awake()
     {
@@ -95,5 +96,20 @@ public class GameManager : MonoBehaviour
     private void DumpPS()
     {
         dump_ps.Play();
+    }
+
+    public bool IsMinigamePlayed()
+    {
+        return minigameIsPlayed;
+    }
+
+    public void MinigameWasToggled()
+    {
+        minigameIsPlayed = !minigameIsPlayed;
+    }
+
+    public ref List<SetMinigameView> GetMinigameButtons()
+    {
+        return ref minigameButtons;
     }
 }

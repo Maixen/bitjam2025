@@ -17,7 +17,7 @@ public class ParasiteMinigame : MonoBehaviour
     [SerializeField] private float nextBugSpawnsIn;
     [SerializeField] private Vector2 xBugSpawnBoundaries;
     [SerializeField] private Vector2 yBugSpawnBoundaries;
-
+    private Animator plantAnimator;
     //<3
     private float RandomizeFromRange(Vector2 range)
     {
@@ -28,16 +28,19 @@ public class ParasiteMinigame : MonoBehaviour
     {
         playable = true;
         bugParticles.gameObject.SetActive(true);
+        plantAnimator = FlowerData.instance.gameObject.GetComponent<Animator>();
     }
 
     public void StartMinigame()
     {
         if (gameHasStarted || !playable)
             return;
+        GameManager.Instance.MinigameWasToggled();
         gameHasStarted = true;
         bugSpawnCount = (int)RandomizeFromRange(bugSpawnAmountRange);
         SpawnBug(new Vector2(RandomizeFromRange(xBugSpawnBoundaries), RandomizeFromRange(yBugSpawnBoundaries)));
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        plantAnimator.SetTrigger("Bugs");
     }
 
     private void Update()
@@ -74,10 +77,12 @@ public class ParasiteMinigame : MonoBehaviour
     private void Win()
     {
         //Game is won, duh
+        GameManager.Instance.MinigameWasToggled();
         gameHasStarted = false;
         gameObject.SetActive(false);
         playable = false;
         bugParticles.gameObject.SetActive(false);
+        plantAnimator.SetTrigger("End");
     }
     
 }

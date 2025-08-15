@@ -11,6 +11,8 @@ TagManager:
   - MinigameAccess
   - BugGame
   - Bug
+  - SoulGame
+  - Scissor
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Scissor
   - 
   - 
   - 

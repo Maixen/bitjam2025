@@ -9,6 +9,8 @@ public class FlowerCheck : MonoBehaviour
     [SerializeField] private bool plantExists;
     [SerializeField] private bool[] assumptions;
     [SerializeField] private bool[] correctAnswers;
+    [SerializeField] private bool[] minigamesSupposedToBeat;
+    [SerializeField] private bool[] minigamesBeaten;
     [SerializeField] private List<CheckBoxInteract> allCheckboxes;
 
     private void Awake()
@@ -36,7 +38,7 @@ public class FlowerCheck : MonoBehaviour
         GetAssumptions();
         int badAmount = GetAmountOff(new bool[5]);
         bool correct;
-        if (GetAmountOff(assumptions) != 0)
+        if (GetAmountOff(assumptions) != 0 || (badAmount > 0 && flowerWasSold) || (badAmount == 0 && !flowerWasSold))
         {
             //GetPoints(-)
             print("Wrong guess");
@@ -47,6 +49,8 @@ public class FlowerCheck : MonoBehaviour
             //GetPoints(+)
             print("Right guess");
             correct = true;
+            if (minigamesBeaten == minigamesSupposedToBeat)
+                print("Perfektionist, Punktebonus");
         }
         for ( int i = 0; i < allCheckboxes.Count; i++ )
         {
@@ -96,5 +100,15 @@ public class FlowerCheck : MonoBehaviour
             answers[3] = true;
         }
         correctAnswers = answers;
+    }
+
+    public void SetMinigamesToBeBeaten(bool[] minigames)
+    {
+        minigamesSupposedToBeat = minigames;
+    }
+
+    public void MinigameWasBeaten(int minigameIndex)
+    {
+        minigamesBeaten[minigameIndex] = true;
     }
 }
