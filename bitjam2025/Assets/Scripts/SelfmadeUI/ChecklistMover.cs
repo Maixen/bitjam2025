@@ -8,11 +8,13 @@ public class ChecklistMover : MonoBehaviour
     public float returnSpeed = 5f;       // How quickly it returns to origin
     public float maxOffset = 0.5f;       // Max distance from origin
 
+    [SerializeField] private Transform reference;
+
     private Vector3 originalPosition;
 
     void Start()
     {
-        originalPosition = transform.position;
+        originalPosition = reference.position;
     }
 
     void Update()
