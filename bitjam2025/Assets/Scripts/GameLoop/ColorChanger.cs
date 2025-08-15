@@ -15,7 +15,10 @@ public class ColorChanger : MonoBehaviour
     [SerializeField] private List<Color> backgroundMinigameColors;
     [Space]
     [SerializeField] private Material primaryMaterial;
-    [SerializeField] private Material extraMaterial;
+    [SerializeField] private Material moneyMaterial;
+    [SerializeField] private Material waterMaterial;
+    [SerializeField] private Material bugMaterial;
+    [SerializeField] private Material soulMaterial;
     [SerializeField] private Material backgroundMaterial;
 
     private void Awake()
@@ -29,7 +32,10 @@ public class ColorChanger : MonoBehaviour
             return;
         currentPalette = paletteIndex;
         primaryMaterial.SetColor("_TargetColor", primaryColors[currentPalette]);
-        extraMaterial.SetColor("_Color", primaryColors[currentPalette]);
+        moneyMaterial.SetColor("_Color", primaryColors[currentPalette]);
+        waterMaterial.SetColor("_Color", primaryColors[currentPalette]);
+        bugMaterial.SetColor("_Color", primaryColors[currentPalette]);
+        soulMaterial.SetColor("_Color", primaryColors[currentPalette]);
         backgroundMaterial.SetColor("_TargetColor", backgroundColors[currentPalette]);
     }
 
@@ -40,7 +46,10 @@ public class ColorChanger : MonoBehaviour
         if(++currentPalette >= primaryColors.Count)
             currentPalette = 0;
         primaryMaterial.SetColor("_TargetColor", primaryColors[currentPalette]);
-        extraMaterial.SetColor("_Color", primaryColors[currentPalette]);
+        moneyMaterial.SetColor("_Color", primaryColors[currentPalette]);
+        waterMaterial.SetColor("_Color", primaryColors[currentPalette]);
+        bugMaterial.SetColor("_Color", primaryColors[currentPalette]);
+        soulMaterial.SetColor("_Color", primaryColors[currentPalette]);
         backgroundMaterial.SetColor("_TargetColor", backgroundColors[currentPalette]);
     }
 
@@ -55,7 +64,10 @@ public class ColorChanger : MonoBehaviour
             return;
         }
         primaryMaterial.SetColor("_TargetColor", primaryMinigameColors[paletteindex]);
-        extraMaterial.SetColor("_Color", primaryMinigameColors[paletteindex]);
+        moneyMaterial.SetColor("_Color", primaryMinigameColors[paletteindex]);
+        waterMaterial.SetColor("_Color", primaryMinigameColors[paletteindex]);
+        bugMaterial.SetColor("_Color", primaryMinigameColors[paletteindex]);
+        soulMaterial.SetColor("_Color", primaryMinigameColors[paletteindex]);
         backgroundMaterial.SetColor("_TargetColor", backgroundMinigameColors[paletteindex]);
     }
 }
