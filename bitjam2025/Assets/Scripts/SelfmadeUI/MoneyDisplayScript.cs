@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
 public class MoneyDisplayScript : MonoBehaviour
@@ -8,18 +9,29 @@ public class MoneyDisplayScript : MonoBehaviour
     [SerializeField] private List<Sprite> numberSprites;
     [SerializeField] private int number;
     [SerializeField] private int numberOnDisplay;
-    [SerializeField] private int numberCountUpsPerSecond;
+    [SerializeField, Range(0.1f,10)] private float numberCountUpsPerSecond;
     [SerializeField] private float countUpPercent;
     private float untilNextCount;
+    bool valueJustGotChanged = false;
 
+
+    private void Start()
+    {
+        untilNextCount = 0;
+    }
     public void SetNewValue(int newValue)
     {
         number = newValue;
+        if (newValue < 0)
+            newValue = 0;
     }
 
     public void ChangeValueBy(int addedValue)
     {
         number += addedValue;
+        valueJustGotChanged = true;
+        if (addedValue < 0)
+            addedValue = 0;
     }
 
     public int GetValue()
@@ -36,23 +48,38 @@ public class MoneyDisplayScript : MonoBehaviour
             untilNextCount += Time.deltaTime;
             return;
         }
-        numberOnDisplay += (int)((number - numberOnDisplay) * countUpPercent);
-        if(numberOnDisplay > number)
-            numberOnDisplay = number;
-        GetSpritesFromNumber();
+        untilNextCount = 0;
+        float numberAddedToDisplay = ((float)(number - numberOnDisplay) * countUpPercent);
+        if(numberAddedToDisplay < 0 && numberAddedToDisplay > -1) 
+            numberAddedToDisplay = -1;
+        if (numberAddedToDisplay > 0 && numberAddedToDisplay < 1)
+            numberAddedToDisplay = 1;
+        numberOnDisplay += (int)numberAddedToDisplay;
+        int[] digits = new int[5];
+        int[] digitsWithNoGoodArray = IntToIntArray(numberOnDisplay);
+        if (digitsWithNoGoodArray.Length > 5)
+            digitsWithNoGoodArray = new int[5] {9,9,9,9,9};
+        for (int i = 0; i < digitsWithNoGoodArray.Length; i++)
+            digits[i] = digitsWithNoGoodArray[i];
+        for(int i = 0; i < digits.Length; i++)
+        {
+            print(i + ": " + digits[i]);
+            numberRenderers[i].sprite = numberSprites[digits[i]];
+        }
     }
 
-    private void GetSpritesFromNumber()
+    private int[] IntToIntArray(int num)
     {
-        for(int i = 0; i < numberRenderers.Count; i++)
-        {
-            int moduluRest = (numberOnDisplay / (int)Mathf.Pow(numberOnDisplay,i)) % 10;
-            if(moduluRest > 9)
-            {
-                print("Ich hatte leider unrecht, mein größtes Beileid Herr Marksen");
-                moduluRest = 9;
-            }
-            numberRenderers[i].sprite = numberSprites[moduluRest];
-        }
+        if (num == 0)
+            return new int[5] { 0,0,0,0,0 };
+
+        List<int> digits = new List<int>();
+
+        for (; num != 0; num /= 10)
+            digits.Add(num % 10);
+
+        int[] array = digits.ToArray();
+
+        return array;
     }
 }

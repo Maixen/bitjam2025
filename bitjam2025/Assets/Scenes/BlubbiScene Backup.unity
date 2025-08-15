@@ -12414,11 +12414,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberRenderers:
-  - {fileID: 4288841743735777546}
-  - {fileID: 7939034943289090190}
-  - {fileID: 6386656210896144663}
-  - {fileID: 4565714688288343749}
   - {fileID: 8916227575954328412}
+  - {fileID: 4565714688288343749}
+  - {fileID: 6386656210896144663}
+  - {fileID: 7939034943289090190}
+  - {fileID: 4288841743735777546}
   numberSprites:
   - {fileID: -1969594, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
   - {fileID: -171394892, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
@@ -12432,8 +12432,8 @@ MonoBehaviour:
   - {fileID: -1366588795, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
   number: 0
   numberOnDisplay: 0
-  numberCountUpsPerSecond: 0
-  countUpPercent: 0
+  numberCountUpsPerSecond: 5
+  countUpPercent: 0.1
 --- !u!4 &3671069704493063282
 Transform:
   m_ObjectHideFlags: 0
@@ -12910,11 +12910,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberRenderers:
-  - {fileID: 6728574846699449766}
-  - {fileID: 632944640327296034}
-  - {fileID: 4486781530632031675}
-  - {fileID: 6465225859735159401}
   - {fileID: 2114853744995078128}
+  - {fileID: 6465225859735159401}
+  - {fileID: 4486781530632031675}
+  - {fileID: 632944640327296034}
+  - {fileID: 6728574846699449766}
   numberSprites:
   - {fileID: -1969594, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
   - {fileID: -171394892, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
@@ -12928,8 +12928,8 @@ MonoBehaviour:
   - {fileID: -1366588795, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
   number: 0
   numberOnDisplay: 0
-  numberCountUpsPerSecond: 0
-  countUpPercent: 0
+  numberCountUpsPerSecond: 10
+  countUpPercent: 0.4
 --- !u!4 &6059583995276630238
 Transform:
   m_ObjectHideFlags: 0
