@@ -17,6 +17,10 @@ public class WaterMinigame : MonoBehaviour
     [SerializeField] private float fillPercentPerSecondBase;
     [SerializeField] private float maxFillSpeedOffset;
     private float fillPercentPerSecond;
+    [Space]
+    [SerializeField] private Vector2 gamestoWinRange;
+    [SerializeField] private int gamestoWinAmount;
+    [SerializeField] private int gamesWon;
     [SerializeField] private float percentToFill;
     [SerializeField] private float currentFillPercent;
     [SerializeField, Range(0,5)] private float maxPercentOffset;
@@ -37,6 +41,15 @@ public class WaterMinigame : MonoBehaviour
             return;
         GameManager.Instance.MinigameWasToggled();
         gameHasStarted = true;
+        waterMeter.SetActive(true);
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        plantAnimator.SetTrigger("Water");
+        gamestoWinAmount = Random.Range((int)gamestoWinRange.x,(int)gamestoWinRange.y);
+        SetupGame();
+    }
+
+    private void SetupGame()
+    {
         slider.transform.localPosition = sliderStartPos;
         percentToFill = Random.Range(0.5f, 0.9f);
         currentFillPercent = 0;
@@ -44,10 +57,7 @@ public class WaterMinigame : MonoBehaviour
         slider.transform.localPosition = sliderStartPos - Vector3.up * sliderStartPos.y + Vector3.up * sliderTargetYPos;
         water.transform.localPosition = waterStartPos;
         water.transform.localScale = waterStartFill;
-        waterMeter.SetActive(true);
         fillPercentPerSecond = fillPercentPerSecondBase * Random.Range(fillPercentPerSecondBase, fillPercentPerSecondBase + maxFillSpeedOffset);
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        plantAnimator.SetTrigger("Water");
     }
 
     public void IsPlayable()
@@ -58,19 +68,28 @@ public class WaterMinigame : MonoBehaviour
     }
     private void CheckResult()
     {
-        if(Mathf.Abs(percentToFill - currentFillPercent) < maxPercentOffset)
+        if(Mathf.Abs(percentToFill - currentFillPercent) > maxPercentOffset)
+            return;
+        if(++gamesWon < gamestoWinAmount)
         {
-            //Game is won
-            print("Won");
-            GameManager.Instance.MinigameWasToggled();
-            gameHasStarted = false;
-            gameObject.SetActive(false);
-            waterMeter.SetActive(false);
-            thirstParticles.gameObject.SetActive(false);
-            playable = false;
-            plantAnimator.SetTrigger("End");
+            SetupGame();
             return;
         }
+        Win();
+    }
+
+    private void Win()
+    {
+        //Game is won
+        print("Won");
+        GameManager.Instance.AddMoney(10);
+        GameManager.Instance.MinigameWasToggled();
+        gameHasStarted = false;
+        gameObject.SetActive(false);
+        waterMeter.SetActive(false);
+        thirstParticles.gameObject.SetActive(false);
+        playable = false;
+        plantAnimator.SetTrigger("End");
         return;
     }
 

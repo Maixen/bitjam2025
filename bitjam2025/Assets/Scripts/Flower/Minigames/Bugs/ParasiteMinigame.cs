@@ -76,7 +76,7 @@ public class ParasiteMinigame : MonoBehaviour
 
     private void Win()
     {
-        //Game is won, duh
+        GameManager.Instance.AddMoney(10);
         GameManager.Instance.MinigameWasToggled();
         gameHasStarted = false;
         gameObject.SetActive(false);

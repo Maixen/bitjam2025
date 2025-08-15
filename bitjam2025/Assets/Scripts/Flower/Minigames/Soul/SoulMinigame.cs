@@ -70,6 +70,7 @@ public class SoulMinigame : MonoBehaviour
     {
         //Game is won, duh
         gameHasStarted = false;
+        GameManager.Instance.AddMoney(10);
         GameManager.Instance.MinigameWasToggled();
         gameObject.SetActive(false);
         playable = false;
