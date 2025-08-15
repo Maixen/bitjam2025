@@ -50,7 +50,12 @@ public class FlowerCheck : MonoBehaviour
             print("Right guess");
             correct = true;
             if (minigamesBeaten == minigamesSupposedToBeat)
+            {
+                GameManager.Instance.AddMoney(20);
                 print("Perfektionist, Punktebonus");
+            }
+            else
+                GameManager.Instance.AddMoney(10);
         }
         for ( int i = 0; i < allCheckboxes.Count; i++ )
         {
