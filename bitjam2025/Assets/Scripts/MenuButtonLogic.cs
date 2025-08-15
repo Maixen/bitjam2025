@@ -8,6 +8,8 @@ public class MenuButtonLogic : MonoBehaviour
     [SerializeField] private Vector2 normalPos;
     [SerializeField] private float targetXOffset;
 
+    [SerializeField] private string functionName;
+
 
     private Vector2 targetPosition;
     public float speed;
@@ -24,9 +26,15 @@ public class MenuButtonLogic : MonoBehaviour
     {
         targetPosition = extraPos;
     }
+
     private void OnMouseExit()
     {
         targetPosition = normalPos;
+    }
+
+    private void OnMouseDown()
+    {
+        MenuManager.instance.Invoke(functionName, 0f);
     }
 
     void Update()

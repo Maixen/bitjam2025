@@ -1054,6 +1054,237 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Text_01_45
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 256
+        width: 56
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fd8b7283c75aae4fba52550e2bb430d
+      internalID: -73074171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_01_46
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 240
+        width: 55
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d208410676307f41a07a6297f90a712
+      internalID: -1854890532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_01_47
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 256
+        width: 15
+        height: 6
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25f9aae67c33eea40bb26c3fd5777827
+      internalID: 222712888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_01_48
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 240
+        width: 11
+        height: 6
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51a13d80e0abe1c42ac211b36c58a0ea
+      internalID: -791392197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_01_49
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 224
+        width: 43
+        height: 6
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd44a792899b4664e83f6674d12f2a1f
+      internalID: -279292966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_01_50
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 208
+        width: 21
+        height: 6
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: addc6deedd1054943a53fbd2d8587130
+      internalID: 26330029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_01_51
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 192
+        width: 21
+        height: 6
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dd632e1be4e21447bd3a394affe34ce
+      internalID: -1376291505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_01_52
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 176
+        width: 17
+        height: 6
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d14f368806cfaf489c11efed273708e
+      internalID: 1873724756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_01_53
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 304
+        width: 2
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f006677274edd64ba6e00e8c2db35b5
+      internalID: -1975437167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_01_54
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 304
+        width: 2
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad7aea3a602473b459b27a7647fd93ae
+      internalID: 527747753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_01_55
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 272
+        width: 45
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17114da511075d3428ef808cf330df46
+      internalID: -2003779687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1105,7 +1336,18 @@ TextureImporter:
       Text_01_42: 440911667
       Text_01_43: 514796197
       Text_01_44: -918954273
+      Text_01_45: -73074171
+      Text_01_46: -1854890532
+      Text_01_47: 222712888
+      Text_01_48: -791392197
+      Text_01_49: -279292966
       Text_01_5: -171394892
+      Text_01_50: 26330029
+      Text_01_51: -1376291505
+      Text_01_52: 1873724756
+      Text_01_53: -1975437167
+      Text_01_54: 527747753
+      Text_01_55: -2003779687
       Text_01_6: 1120116241
       Text_01_7: -1534294089
       Text_01_8: 1965735903
