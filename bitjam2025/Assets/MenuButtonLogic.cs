@@ -1,0 +1,41 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class MenuButtonLogic : MonoBehaviour
+{
+    [SerializeField] private Vector2 normalPos;
+    [SerializeField] private float targetXOffset;
+
+
+    private Vector2 targetPosition;
+    public float speed;
+
+    private Vector2 extraPos;
+
+    private void Start()
+    {
+        extraPos = normalPos + Vector2.right * targetXOffset;
+        targetPosition = normalPos;
+    }
+
+    private void OnMouseEnter()
+    {
+        targetPosition = extraPos;
+    }
+    private void OnMouseExit()
+    {
+        targetPosition = normalPos;
+    }
+
+    void Update()
+    {
+        transform.position = SpringMove(transform.position, targetPosition, speed, Time.deltaTime);
+    }
+
+    Vector2 SpringMove(Vector2 current, Vector2 target, float speed, float deltaTime)
+    {
+        return Vector2.Lerp(current, target, speed * deltaTime);
+    }
+}
