@@ -19,11 +19,10 @@ public class TutorialManager : MonoBehaviour
 
     public List<Sprite> tutorialMain = new List<Sprite>();
     public List<Sprite> tutorialExtraItems = new List<Sprite>();
-    public List<Sprite> tutorialEndLoose = new List<Sprite>();
-    public List<Sprite> tutorialEndWin = new List<Sprite>();
-    public List<Sprite> tutorialMinigameWater = new List<Sprite>();
-    public List<Sprite> tutorialMinigameBug = new List<Sprite>();
-    public List<Sprite> tutorialMinigameSoul = new List<Sprite>();
+    public List<Sprite> tutorial3 = new List<Sprite>();
+    public List<Sprite> tutorial4 = new List<Sprite>();
+    public List<Sprite> tutorial5 = new List<Sprite>();
+    public List<Sprite> tutorialEndScene = new List<Sprite>();
 
     [SerializeField] private float timeToSwapSpriteInAnimation;
     [SerializeField] private float timeToSwapSpriteDelayInAnimation;
