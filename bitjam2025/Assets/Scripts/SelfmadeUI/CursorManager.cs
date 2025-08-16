@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CursorManager : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class CursorManager : MonoBehaviour
     private Vector2 previousMousePos;
     [SerializeField] private Vector2 cursorOffset;
     [SerializeField] private float trailActivateTreshhold;
+    [SerializeField] private LayerMask menuMask;
     void Start()
     {
         Cursor.visible = false;
@@ -37,7 +40,21 @@ public class CursorManager : MonoBehaviour
             //print(hit.collider.gameObject.name);
             if (hit.collider == null)
                 return;
-            if(hit.collider.CompareTag("Checkbox"))
+            if (GameManager.Instance.gameIsDone)
+            {
+                if (hit.collider.CompareTag("Restart"))
+                {
+                    SceneManager.LoadScene("Menu");
+                    return;
+                }
+                if (hit.collider.CompareTag("Menu"))
+                {
+                    SceneManager.LoadScene("Menu");
+                    return;
+                }
+                return;
+            }
+            if (hit.collider.CompareTag("Checkbox"))
             {
                 if(!GameManager.Instance.IsMinigamePlayed())
                     hit.collider.gameObject.GetComponent<CheckBoxInteract>().WasClicked();
@@ -51,25 +68,29 @@ public class CursorManager : MonoBehaviour
             }
             if(hit.collider.CompareTag("Dump"))
             {
-                FlowerCheck.instance.CheckFlower(false);
+                if (!GameManager.Instance.IsMinigamePlayed())
+                    FlowerCheck.instance.CheckFlower(false);
                 return;
             }
             if (hit.collider.CompareTag("MinigameAccess"))
             {
                 print("Minigame Button pressed");
-                hit.collider.gameObject.GetComponent<SetMinigameView>().ToggleMinigame();
+                if (!GameManager.Instance.IsMinigamePlayed())
+                    hit.collider.gameObject.GetComponent<SetMinigameView>().ToggleMinigame();
                 return;
             }
             if (hit.collider.CompareTag("WaterGame"))
             {
                 print("WaterGame hit");
-                hit.collider.gameObject.GetComponent<WaterMinigame>().StartMinigame();
+                if (!GameManager.Instance.IsMinigamePlayed())
+                    hit.collider.gameObject.GetComponent<WaterMinigame>().StartMinigame();
                 return;
             }
             if (hit.collider.CompareTag("BugGame"))
             {
                 print("BugGame hit");
-                hit.collider.gameObject.GetComponent<ParasiteMinigame>().StartMinigame();
+                if (!GameManager.Instance.IsMinigamePlayed())
+                    hit.collider.gameObject.GetComponent<ParasiteMinigame>().StartMinigame();
                 return;
             }
             if (hit.collider.CompareTag("Bug"))
@@ -81,7 +102,8 @@ public class CursorManager : MonoBehaviour
             if (hit.collider.CompareTag("SoulGame"))
             {
                 print("SoulGame hit");
-                hit.collider.gameObject.GetComponent<SoulMinigame>().StartMinigame();
+                if (!GameManager.Instance.IsMinigamePlayed())
+                    hit.collider.gameObject.GetComponent<SoulMinigame>().StartMinigame();
                 return;
             }
         }

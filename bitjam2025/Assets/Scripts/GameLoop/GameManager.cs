@@ -33,15 +33,22 @@ public class GameManager : MonoBehaviour
     private GameObject flower;
     [SerializeField] private bool minigameIsPlayed;
     [SerializeField] private MoneyDisplayScript moneyOwnedDiplay;
+    public bool gameIsDone;
+    [SerializeField] private Animator wallAnimator;
+    [SerializeField] private EndScreenBehaviour endScreen;
+    [SerializeField] private bool isLevelWithFollowUp;
+    
 
     private void Awake()
     {
         Instance = this;
+        gameIsDone = false;
     }
 
     private void Start()
     {
         StartCoroutine(NewPlant());
+        wallAnimator.SetTrigger("Start");
     }
 
     public IEnumerator NewPlant()
@@ -81,7 +88,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(cooldown_time);
         Destroy(flower);
         flower = null;
-        StartCoroutine(NewPlant());
+        if(!gameIsDone)
+            StartCoroutine(NewPlant());
     }
 
     private void CreatePS()
@@ -117,5 +125,13 @@ public class GameManager : MonoBehaviour
     public void AddMoney(int moneyAdded)
     {
         moneyOwnedDiplay.ChangeValueBy(moneyAdded);
+    }
+
+    public void InitiateGameEnd(bool wasWon)
+    {
+        gameIsDone = true;
+        wallAnimator.SetTrigger("GameEnd");
+        endScreen.SetupEndScreen(wasWon,isLevelWithFollowUp,
+            new int[] {Timer.instance.GetTimeSurvived(),FlowerCheck.instance.GetFlowersWrong(),MoneyControl.Instance.GetBestStreak(),MoneyControl.Instance.GetMoneyEarnedInTotal()});
     }
 }

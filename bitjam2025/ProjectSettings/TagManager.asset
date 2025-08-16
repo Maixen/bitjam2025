@@ -13,6 +13,8 @@ TagManager:
   - Bug
   - SoulGame
   - Scissor
+  - Restart
+  - Menu
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - Water
   - UI
   - Scissor
-  - 
+  - MenuUI
   - 
   - 
   - 

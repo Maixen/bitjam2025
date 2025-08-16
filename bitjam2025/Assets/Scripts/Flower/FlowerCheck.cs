@@ -12,10 +12,16 @@ public class FlowerCheck : MonoBehaviour
     [SerializeField] private bool[] minigamesSupposedToBeat;
     [SerializeField] private bool[] minigamesBeaten;
     [SerializeField] private List<CheckBoxInteract> allCheckboxes;
+    [SerializeField] private int totalWrongFlowers;
 
     private void Awake()
     {
         instance = this;
+    }
+
+    public int GetFlowersWrong()
+    {
+        return totalWrongFlowers;
     }
 
     private void Start()
@@ -42,6 +48,7 @@ public class FlowerCheck : MonoBehaviour
         {
             //GetPoints(-)
             print("Wrong guess");
+            totalWrongFlowers++;
             correct = false;
         }
         else
@@ -70,7 +77,7 @@ public class FlowerCheck : MonoBehaviour
         int amount = 0;
         for (int i = 0; i < assumptions.Length; i++)
         {
-            print(i + ": " + arrayToCheck[i] + " vs " + correctAnswers[i]);
+            //print(i + ": " + arrayToCheck[i] + " vs " + correctAnswers[i]);
             if (arrayToCheck[i] != correctAnswers[i])
                 amount++;
         }

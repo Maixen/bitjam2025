@@ -55,15 +55,15 @@ public class MoneyDisplayScript : MonoBehaviour
         if (numberAddedToDisplay > 0 && numberAddedToDisplay < 1)
             numberAddedToDisplay = 1;
         numberOnDisplay += (int)numberAddedToDisplay;
-        int[] digits = new int[5];
+        int[] digits = new int[numberRenderers.Count];
         int[] digitsWithNoGoodArray = IntToIntArray(numberOnDisplay);
-        if (digitsWithNoGoodArray.Length > 5)
+        if (digitsWithNoGoodArray.Length > digits.Length)
             digitsWithNoGoodArray = new int[5] {9,9,9,9,9};
         for (int i = 0; i < digitsWithNoGoodArray.Length; i++)
             digits[i] = digitsWithNoGoodArray[i];
         for(int i = 0; i < digits.Length; i++)
         {
-            print(i + ": " + digits[i]);
+            //print(i + ": " + digits[i]);
             numberRenderers[i].sprite = numberSprites[digits[i]];
         }
     }
