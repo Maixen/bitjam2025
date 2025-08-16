@@ -11,6 +11,12 @@ public class CursorManager : MonoBehaviour
     [SerializeField] private Vector2 cursorOffset;
     [SerializeField] private float trailActivateTreshhold;
     [SerializeField] private LayerMask menuMask;
+
+    [SerializeField] private AudioSource button_audioSource;
+    [SerializeField] private AudioSource checkbox_audioSource;
+    [SerializeField] private AudioSource plant_audioSource;
+    [SerializeField] private AudioSource plant_audioSource2;
+
     void Start()
     {
         Cursor.visible = false;
@@ -56,20 +62,29 @@ public class CursorManager : MonoBehaviour
             }
             if (hit.collider.CompareTag("Checkbox"))
             {
-                if(!GameManager.Instance.IsMinigamePlayed())
+                if (!GameManager.Instance.IsMinigamePlayed())
+                {
+                    checkbox_audioSource.Play();
                     hit.collider.gameObject.GetComponent<CheckBoxInteract>().WasClicked();
+                }
                 return;
             }
             if(hit.collider.CompareTag("Sell"))
             {
                 if (!GameManager.Instance.IsMinigamePlayed())
+                {
+                    button_audioSource.Play();
                     FlowerCheck.instance.CheckFlower(true);
+                }
                 return;
             }
             if(hit.collider.CompareTag("Dump"))
             {
                 if (!GameManager.Instance.IsMinigamePlayed())
+                {
+                    button_audioSource.Play();
                     FlowerCheck.instance.CheckFlower(false);
+                }
                 return;
             }
             if (hit.collider.CompareTag("MinigameAccess"))
@@ -83,14 +98,20 @@ public class CursorManager : MonoBehaviour
             {
                 print("WaterGame hit");
                 if (!GameManager.Instance.IsMinigamePlayed())
+                {
+                    plant_audioSource2.Play();
                     hit.collider.gameObject.GetComponent<WaterMinigame>().StartMinigame();
+                }
                 return;
             }
             if (hit.collider.CompareTag("BugGame"))
             {
                 print("BugGame hit");
                 if (!GameManager.Instance.IsMinigamePlayed())
+                {
+                    plant_audioSource.Play();
                     hit.collider.gameObject.GetComponent<ParasiteMinigame>().StartMinigame();
+                }
                 return;
             }
             if (hit.collider.CompareTag("Bug"))
@@ -103,7 +124,10 @@ public class CursorManager : MonoBehaviour
             {
                 print("SoulGame hit");
                 if (!GameManager.Instance.IsMinigamePlayed())
+                {
+                    plant_audioSource2.Play();
                     hit.collider.gameObject.GetComponent<SoulMinigame>().StartMinigame();
+                }
                 return;
             }
         }

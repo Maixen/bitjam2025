@@ -15,6 +15,9 @@ public class FlowerCheck : MonoBehaviour
     [SerializeField] private int totalWrongFlowers;
     [SerializeField] private AudioSource wrongSound;
 
+    [SerializeField] private ParticleSystem minigameBeaten_ps;
+    [SerializeField] private AudioSource minigameBeaten_audioSource;
+
     private void Awake()
     {
         instance = this;
@@ -141,5 +144,7 @@ public class FlowerCheck : MonoBehaviour
     public void MinigameWasBeaten(int minigameIndex)
     {
         minigamesBeaten[minigameIndex] = true;
+        minigameBeaten_audioSource.Play();
+        minigameBeaten_ps.Play();
     }
 }

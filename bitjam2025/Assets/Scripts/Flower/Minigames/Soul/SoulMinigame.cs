@@ -25,6 +25,8 @@ public class SoulMinigame : MonoBehaviour
     private Animator plantAnimator;
     [SerializeField]private GameObject border;
 
+    [SerializeField] private AudioSource scissors_audioSource;
+
 
 
     //<3
@@ -81,6 +83,7 @@ public class SoulMinigame : MonoBehaviour
         FlowerCheck.instance.MinigameWasBeaten(2);
         Destroy(scissor);
         border.SetActive(false);
+        scissors_audioSource.Play(100);
     }
 
     private float ResetSpawnTime()
@@ -114,6 +117,7 @@ public class SoulMinigame : MonoBehaviour
         print("Caught a Pellet");
         pelletsAlive--;
         scissor.GetComponent<Animator>().SetTrigger("Cut");
+        scissors_audioSource.Play();
         if (pelletsAlive == 0 && pelletsLeftToSpawn == 0)
             Win();
     }

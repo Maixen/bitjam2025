@@ -7,12 +7,19 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     [SerializeField] private Animator pipe_a;
+    [SerializeField] private AudioSource pipe_audioSource;
+    [SerializeField] private AudioSource pipe_audioSource2;
     [SerializeField] private float pipe_time;
     [Space]
     [SerializeField] private float flower_time;
+    [SerializeField] private AudioSource plant_audioSource;
+    [SerializeField] private ParticleSystem plant_ps;
     [Space]
     [SerializeField] private Animator conveyor_a;
+    [SerializeField] private AudioSource conveyor_audioSource;
     [SerializeField] private Animator checklist_a;
+    [SerializeField] private AudioSource checklist_audioSource;
+    [SerializeField] private AudioSource checklist_audioSource2;
     [SerializeField] private float conveyor_time;
     [SerializeField] private float conveyor_speed;
     [Space]
@@ -24,6 +31,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private ParticleSystem create_ps;
     [SerializeField] private float create_offset;
     [SerializeField] private ParticleSystem sell_ps;
+    [SerializeField] private AudioSource sell_audioSource;
     [SerializeField] private float sell_offset;
     [SerializeField] private ParticleSystem dump_ps;
     [SerializeField] private float dump_offset;
@@ -85,17 +93,25 @@ public class GameManager : MonoBehaviour
     {
         yield return new WaitForSeconds(pipe_time);
         pipe_a.SetTrigger("Spawn");
+        pipe_audioSource.Play();
         Invoke(nameof(CreatePS), create_offset);
         yield return new WaitForSeconds(flower_time);
         flower = FlowerCreation.instance.CreateFlower();
         flower.GetComponent<Animator>().SetTrigger("Drop");
-        yield return new WaitForSeconds(conveyor_time);
+        plant_audioSource.Play(100);
+        pipe_audioSource2.Play();
+        yield return new WaitForSeconds(0.1f);
+        plant_ps.Play();
+        yield return new WaitForSeconds(Mathf.Abs(conveyor_time - 0.1f)); // Makes sure its positive :) we never know what Blubbi might do
         FlowerCheck.instance.FlowerNowExists();
         for (int i = 0; i < minigameButtons.Count; i++)
             minigameButtons[i].ResetButton();
         ColorChanger.instance.NextPalette();
         conveyor_a.SetTrigger("First");
+        conveyor_audioSource.Play();
         checklist_a.SetTrigger("Swap");
+        checklist_audioSource.Play();
+        checklist_audioSource.Play(200);
     }
 
     public IEnumerator GetRidOfPlant(bool plantWasSold, bool correct)
@@ -107,6 +123,7 @@ public class GameManager : MonoBehaviour
                 Invoke(nameof(SellPS), sell_offset);
             yield return new WaitForSeconds(conveyorLast_time);
             conveyor_a.SetTrigger("Last");
+            conveyor_audioSource.Play();
         }
         else
         {
@@ -114,6 +131,7 @@ public class GameManager : MonoBehaviour
             Invoke(nameof(DumpPS), dump_offset);
             yield return new WaitForSeconds(conveyorBack_time);
             conveyor_a.SetTrigger("Back");
+            conveyor_audioSource.Play();
         }
         yield return new WaitForSeconds(cooldown_time);
         Destroy(flower);
@@ -130,6 +148,7 @@ public class GameManager : MonoBehaviour
     private void SellPS()
     {
         sell_ps.Play();
+        sell_audioSource.Play();
     }
 
     private void DumpPS()
