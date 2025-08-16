@@ -442,7 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b61ebcaadfc89945af95417f399e1d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToGoOn: 3.5
+  timeToGoOn: 0.1
   timeToStartTutorial: 1
   tutorialDisplay: {fileID: 7833482290827588793}
   textDisplay: {fileID: 1338112348725173078}
