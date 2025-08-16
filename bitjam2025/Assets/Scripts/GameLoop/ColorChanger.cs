@@ -21,6 +21,9 @@ public class ColorChanger : MonoBehaviour
     [SerializeField] private Material soulMaterial;
     [SerializeField] private Material backgroundMaterial;
 
+    [SerializeField] private AudioSource hardSwap_audioSource;
+    [SerializeField] private AudioSource lightSwap_audioSource;
+
     private void Awake()
     {
         instance = this;
@@ -41,6 +44,8 @@ public class ColorChanger : MonoBehaviour
         bugMaterial.SetColor("_Color", primaryColors[currentPalette]);
         soulMaterial.SetColor("_Color", primaryColors[currentPalette]);
         backgroundMaterial.SetColor("_TargetColor", backgroundColors[currentPalette]);
+
+        hardSwap_audioSource.Play();
     }
 
     public void NextPalette()
@@ -55,6 +60,8 @@ public class ColorChanger : MonoBehaviour
         bugMaterial.SetColor("_Color", primaryColors[currentPalette]);
         soulMaterial.SetColor("_Color", primaryColors[currentPalette]);
         backgroundMaterial.SetColor("_TargetColor", backgroundColors[currentPalette]);
+
+        hardSwap_audioSource.Play();
     }
 
     public void SetMinigamePalette(int paletteindex, bool turnOn)
@@ -73,5 +80,7 @@ public class ColorChanger : MonoBehaviour
         bugMaterial.SetColor("_Color", primaryMinigameColors[paletteindex]);
         soulMaterial.SetColor("_Color", primaryMinigameColors[paletteindex]);
         backgroundMaterial.SetColor("_TargetColor", backgroundMinigameColors[paletteindex]);
+
+        lightSwap_audioSource.Play();
     }
 }
