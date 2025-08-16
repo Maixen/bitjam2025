@@ -71,7 +71,7 @@ public class Timer : MonoBehaviour
         int round = roundNum;
         if(roundNum > maxGrowthReachedAtRound)
             round = maxGrowthReachedAtRound;
-        int newRoundMoney = endlessStartNeededMoney * (int)Mathf.Pow(1 + neededMoneyGrowthPercent, round);
+        int newRoundMoney = (int)(endlessStartNeededMoney * Mathf.Pow(1 + neededMoneyGrowthPercent, round));
         return newRoundMoney;
     }
 

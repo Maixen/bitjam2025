@@ -23,6 +23,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject iconOptioins;
     [SerializeField] private GameObject iconCredits;
     [SerializeField] private GameObject iconExit;
+    [SerializeField] private GameObject iconColorChange;
+    [SerializeField] private Sprite[] iconsForColorChange;
 
     [SerializeField] private AudioSource audioSourceOnStart;
 
@@ -45,6 +47,9 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         ResetMenu();
+        ChangeAudioMusic(PlayerPrefs.GetFloat("Music",0));
+        ChangeAudioSFX(PlayerPrefs.GetFloat("SFX",0));
+        SetChangeColor(PlayerPrefs.GetInt("ChangeColor", 0));
     }
 
     private void Update()
@@ -129,6 +134,7 @@ public class MenuManager : MonoBehaviour
         value = ReturnSnappedValue(value);
         musicSlider.value = value;
         audioMixer.SetFloat("musicVol", value);
+        PlayerPrefs.SetFloat("Music", value);
     }
 
     public void ChangeAudioSFX(float value)
@@ -136,6 +142,21 @@ public class MenuManager : MonoBehaviour
         value = ReturnSnappedValue(value);
         sfxSlider.value = value;
         audioMixer.SetFloat("sfxVol", value);
+        PlayerPrefs.SetFloat("SFX", value);
+    }
+
+    public void SetChangeColor(int isAllowed)
+    {
+        PlayerPrefs.SetInt("ChangeColor", isAllowed);
+        iconColorChange.GetComponent<Image>().sprite = iconsForColorChange[isAllowed];
+    }
+
+    public void ToggleChangeColor()
+    {
+        if (PlayerPrefs.GetInt("ChangeColor") == 0)
+            SetChangeColor(1);
+        else
+            SetChangeColor(0);
     }
 
     private float ReturnSnappedValue(float value)

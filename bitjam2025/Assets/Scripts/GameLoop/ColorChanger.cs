@@ -24,6 +24,10 @@ public class ColorChanger : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        if (PlayerPrefs.GetInt("ChangeColor", 0) == 0)
+            paletteChangeAllowed = false;
+        else
+            paletteChangeAllowed = true;
     }
 
     public void ChangePalette(int paletteIndex)
