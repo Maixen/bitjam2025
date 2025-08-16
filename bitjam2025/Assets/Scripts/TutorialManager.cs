@@ -54,7 +54,8 @@ public class TutorialManager : MonoBehaviour
 
     public void StartTutorial(List<Sprite> tutorial)
     {
-        tutorialChanged.Invoke();
+        if (tutorialChanged != null)
+            tutorialChanged.Invoke();
         tutorialDisplay.SetActive(true);
         textDisplay.sprite = tutorial[0]; // First Sprite
         PlayAudio();
@@ -76,8 +77,10 @@ public class TutorialManager : MonoBehaviour
             currentIndex++;
             if (currentIndex >= currentTutorial.Count)
             {
-                tutorialEnd.Invoke();
-                tutorialChanged.Invoke();
+                if (tutorialEnd != null)
+                    tutorialEnd.Invoke();
+                if (tutorialChanged != null)
+                    tutorialChanged.Invoke();
                 currentTutorial = null;
                 tutorialDisplay.SetActive(false);
             }
