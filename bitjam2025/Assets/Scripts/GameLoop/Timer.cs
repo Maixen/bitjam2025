@@ -23,6 +23,10 @@ public class Timer : MonoBehaviour
     [SerializeField] private float timeUntilnextRound;
     [SerializeField] private List<int> fixedRoundNeededMoneyList;
 
+    [SerializeField] private AudioSource normalTick_audioSource;
+    [SerializeField] private AudioSource heavyTick_audioSource;
+    [SerializeField] private AudioSource alarm_audioSource;
+
     private void Awake()
     {
         instance = this;
@@ -33,11 +37,16 @@ public class Timer : MonoBehaviour
     public void TogglePause()
     {
         isPaused = !isPaused;
+        if (isPaused)
+            normalTick_audioSource.enabled = false;
+        else 
+            normalTick_audioSource.enabled = true;
     }
 
     public void PauseOff()
     {
         isPaused = false;
+        normalTick_audioSource.enabled = false;
     }
 
     public bool AdvanceRound()
@@ -78,12 +87,19 @@ public class Timer : MonoBehaviour
             {
                 currentClockSprite = GetSpriteFromTime(timeUntilnextRound / timeBetweenRounds);
                 clockRenderer.sprite = clockSprites[currentClockSprite];
-                //tick sound
+                if (currentClockSprite == 8)
+                {
+                    alarm_audioSource.volume = 0.5f;
+                    alarm_audioSource.Play();
+                }
+                heavyTick_audioSource.Play();
             }
             return;
         }
         timeUntilnextRound = 0;
         MoneyControl.Instance.Payday();
+        alarm_audioSource.volume = 1f;
+        alarm_audioSource.Play();
     }
 
     private int GetSpriteFromTime(float percentOfTimePassed)
