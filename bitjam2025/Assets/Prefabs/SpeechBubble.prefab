@@ -395,7 +395,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   followStrength: 0.15
   returnSpeed: 5
-  maxOffset: 0.8
+  maxOffset: 0.08
   reference: {fileID: 847211311305539139}
 --- !u!1 &3848226906509263205
 GameObject:
@@ -442,7 +442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b61ebcaadfc89945af95417f399e1d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToGoOn: 0.1
+  timeToGoOn: 3
   timeToStartTutorial: 1
   tutorialDisplay: {fileID: 7833482290827588793}
   textDisplay: {fileID: 1338112348725173078}

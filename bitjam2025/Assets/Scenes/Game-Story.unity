@@ -11317,7 +11317,7 @@ MonoBehaviour:
   maxGrowthReachedAtRound: 10
   roundNum: 0
   maxFixedRoundNum: 3
-  timeBetweenRounds: 6000
+  timeBetweenRounds: 100
   timeUntilnextRound: 0
   fixedRoundNeededMoneyList: 320000004b00000064000000
   normalTick_audioSource: {fileID: 1798161067}
