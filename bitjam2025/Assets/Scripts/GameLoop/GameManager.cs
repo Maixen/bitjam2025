@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator wallAnimator;
     [SerializeField] private EndScreenBehaviour endScreen;
     [SerializeField] private bool isLevelWithFollowUp;
+    [SerializeField] private int levelNum;
     
 
     private void Awake()
@@ -47,9 +48,25 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        TutorialManager.instance.StartTutorial(TutorialManager.instance.tutorialMain);
-        TutorialManager.instance.tutorialEnd += StartEndResolver;
-        TutorialManager.instance.tutorialChanged += TutorialResolver;
+        if (Timer.instance.isEndless)
+        {
+            Timer.instance.PauseOff();
+            StartCoroutine(NewPlant());
+            return;
+        }   
+        if(levelNum == 0)
+        {
+            TutorialManager.instance.StartTutorial(TutorialManager.instance.tutorialMain);
+            TutorialManager.instance.tutorialEnd += StartEndResolver;
+            TutorialManager.instance.tutorialChanged += TutorialResolver;
+            return;
+        }
+        if (levelNum == 1)
+        {
+            return;
+            //hier die Items hinzufügen
+        }
+        
     }
 
     public void StartEndResolver()

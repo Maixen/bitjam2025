@@ -82,7 +82,7 @@ public class ParasiteMinigame : MonoBehaviour
         GameManager.Instance.AddMoney(10);
         GameManager.Instance.MinigameWasToggled();
         gameHasStarted = false;
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         playable = false;
         bugParticles.gameObject.SetActive(false);
         plantAnimator.SetTrigger("End");

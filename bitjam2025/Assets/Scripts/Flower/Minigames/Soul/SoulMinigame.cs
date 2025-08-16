@@ -74,12 +74,13 @@ public class SoulMinigame : MonoBehaviour
         gameHasStarted = false;
         GameManager.Instance.AddMoney(10);
         GameManager.Instance.MinigameWasToggled();
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         playable = false;
         sweatParticles.gameObject.SetActive(false);
         plantAnimator.SetTrigger("End");
         FlowerCheck.instance.MinigameWasBeaten(2);
         Destroy(scissor);
+        border.SetActive(false);
     }
 
     private float ResetSpawnTime()

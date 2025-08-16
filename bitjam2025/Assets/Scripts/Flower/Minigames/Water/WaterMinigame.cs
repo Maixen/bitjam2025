@@ -85,7 +85,7 @@ public class WaterMinigame : MonoBehaviour
         GameManager.Instance.AddMoney(10);
         GameManager.Instance.MinigameWasToggled();
         gameHasStarted = false;
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
         waterMeter.SetActive(false);
         thirstParticles.gameObject.SetActive(false);
         playable = false;

@@ -35,6 +35,7 @@ public class FlowerData : MonoBehaviour
 
     public void ActivateMinigame(int id)
     {
+        
         if(id == 0)
             waterMinigame.gameObject.SetActive(!waterMinigame.gameObject.activeSelf);
         if (id == 1)
@@ -45,6 +46,7 @@ public class FlowerData : MonoBehaviour
 
     public void UnlockMinigame(int id)
     {
+        print("Unlocked minigame " + id);
         if (id == 0)
             waterMinigame.IsPlayable();
         if (id == 1)

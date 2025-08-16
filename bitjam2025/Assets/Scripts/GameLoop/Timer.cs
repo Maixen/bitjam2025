@@ -12,7 +12,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private SpriteRenderer clockRenderer;
     [SerializeField] private Sprite[] clockSprites;
     [SerializeField] private int currentClockSprite;
-    [SerializeField] private bool isEndless;
+    [SerializeField] public bool isEndless;
     [SerializeField] private int endlessStartNeededMoney;
     [SerializeField] private float neededMoneyGrowthPercent;
     [SerializeField] private int maxGrowthReachedAtRound;
@@ -33,6 +33,11 @@ public class Timer : MonoBehaviour
     public void TogglePause()
     {
         isPaused = !isPaused;
+    }
+
+    public void PauseOff()
+    {
+        isPaused = false;
     }
 
     public bool AdvanceRound()

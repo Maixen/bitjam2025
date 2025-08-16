@@ -13,6 +13,7 @@ public class FlowerCheck : MonoBehaviour
     [SerializeField] private bool[] minigamesBeaten;
     [SerializeField] private List<CheckBoxInteract> allCheckboxes;
     [SerializeField] private int totalWrongFlowers;
+    [SerializeField] private AudioSource wrongSound;
 
     private void Awake()
     {
@@ -53,6 +54,7 @@ public class FlowerCheck : MonoBehaviour
             totalWrongFlowers++;
             print(totalWrongFlowers);
             correct = false;
+            wrongSound.Play();
         }
         else
         {
@@ -70,15 +72,19 @@ public class FlowerCheck : MonoBehaviour
             allCheckboxes[i].ResetValue();
         }
         MoneyControl.Instance.FlowerReward(correct, perfection);
+        minigamesBeaten = new bool[3];
+        minigamesSupposedToBeat = new bool[3];
         StartCoroutine(GameManager.Instance.GetRidOfPlant(flowerWasSold, correct));
         return;
     }
 
     private bool CheckifMinigamesDone()
     {
+        if (!FlowerCreation.instance.minigamesAllowed)
+            return true;
         for ( int i = 0;i < minigamesBeaten.Length;i++ )
         {
-            print(minigamesSupposedToBeat[i] + " " + minigamesBeaten[i]);
+            print("Minigame " + i + minigamesSupposedToBeat[i] + " " + minigamesBeaten[i]);
             if (minigamesBeaten[i] != minigamesSupposedToBeat[i])
                 return false;
         }

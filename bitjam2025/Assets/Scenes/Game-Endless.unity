@@ -4337,10 +4337,10 @@ MonoBehaviour:
   - {fileID: 452462078, guid: 300ad63117455244598f7d742f2c03ad, type: 3}
   - {fileID: 1068509569, guid: 300ad63117455244598f7d742f2c03ad, type: 3}
   - {fileID: 2133557785, guid: 300ad63117455244598f7d742f2c03ad, type: 3}
-  chanceOfBadFlower: 0.5
-  maxBadFlowerParts: 2
-  minigamesAllowed: 0
-  maxMinigames: 1
+  chanceOfBadFlower: 0.66
+  maxBadFlowerParts: 3
+  minigamesAllowed: 1
+  maxMinigames: 3
   tools: {fileID: 1908274938}
 --- !u!4 &814990623
 Transform:
@@ -9732,6 +9732,7 @@ GameObject:
   - component: {fileID: 1770604881}
   - component: {fileID: 1770604884}
   - component: {fileID: 1770604885}
+  - component: {fileID: 1770604886}
   m_Layer: 0
   m_Name: Checklist
   m_TagString: Untagged
@@ -9830,6 +9831,7 @@ MonoBehaviour:
   minigamesBeaten: 
   allCheckboxes: []
   totalWrongFlowers: 0
+  wrongSound: {fileID: 1770604886}
 --- !u!95 &1770604885
 Animator:
   serializedVersion: 5
@@ -9851,6 +9853,102 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!82 &1770604886
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770604880}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 45359da406dc6974f8ed9982c98f98a9, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1789848811
 GameObject:
   m_ObjectHideFlags: 0
@@ -10031,13 +10129,13 @@ MonoBehaviour:
   - {fileID: 251264885, guid: 45a86626bf84edb4f896f6d91def228e, type: 3}
   - {fileID: 937710137, guid: 45a86626bf84edb4f896f6d91def228e, type: 3}
   currentClockSprite: 0
-  isEndless: 0
-  endlessStartNeededMoney: 100
+  isEndless: 1
+  endlessStartNeededMoney: 50
   neededMoneyGrowthPercent: 0.25
   maxGrowthReachedAtRound: 10
   roundNum: 0
   maxFixedRoundNum: 3
-  timeBetweenRounds: 6000
+  timeBetweenRounds: 100
   timeUntilnextRound: 0
   fixedRoundNeededMoneyList: 320000004b00000064000000
 --- !u!4 &1798161065
@@ -10280,6 +10378,7 @@ MonoBehaviour:
   wallAnimator: {fileID: 984894643}
   endScreen: {fileID: 984894645}
   isLevelWithFollowUp: 0
+  levelNum: 0
 --- !u!4 &1832372561
 Transform:
   m_ObjectHideFlags: 0

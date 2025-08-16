@@ -23,7 +23,7 @@ public class FlowerCreation : MonoBehaviour
     [Space]
     [SerializeField, Range(0f,1f)] private float chanceOfBadFlower;
     [SerializeField, Range(1,3)] private int maxBadFlowerParts;
-    [SerializeField] private bool minigamesAllowed;
+    [SerializeField] public bool minigamesAllowed;
     [SerializeField, Range(0, 3)] private int maxMinigames;
     [SerializeField] GameObject tools;
 
@@ -54,7 +54,7 @@ public class FlowerCreation : MonoBehaviour
 
     private bool[] SelectRandomMinigames(int amountOfGames)
     {
-        bool[] games = new bool[3] {false,false,false};
+        bool[] games = new bool[3];
         for(int i = 0; i< amountOfGames; i++)
         {
             int random = Random.Range(0,3);
@@ -64,6 +64,7 @@ public class FlowerCreation : MonoBehaviour
                 continue;
             }
             games[random] = true;
+            print("minigame " + random + " was added");
             FlowerData.instance.UnlockMinigame(random);
         }
         FlowerCheck.instance.SetMinigamesToBeBeaten(games);
