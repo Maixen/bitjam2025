@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8540427289590447005}
   - component: {fileID: 1338112348725173078}
+  - component: {fileID: 5552667087864493034}
   m_Layer: 0
   m_Name: Text
   m_TagString: Untagged
@@ -84,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &5552667087864493034
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318787775674929307}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee4f37aed8bb2044c8094a9c3cd2308f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1506877199428733278
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,6 +340,7 @@ MonoBehaviour:
   timeToStartTutorial: 1
   tutorialDisplay: {fileID: 7833482290827588793}
   textDisplay: {fileID: 1338112348725173078}
+  text_a: {fileID: 5552667087864493034}
   tutorialMain:
   - {fileID: 662118801, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
   - {fileID: 789888770, guid: 6aa64292584166d468caf77d7e288804, type: 3}
@@ -343,6 +366,8 @@ MonoBehaviour:
   tutorialMinigameWater: []
   tutorialMinigameBug: []
   tutorialMinigameSoul: []
+  timeToSwapSpriteInAnimation: 0.5
+  timeToSwapSpriteDelayInAnimation: 0.5
 --- !u!1 &6428622909105593089
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,7 +469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2392753755317269550
 Transform:
   m_ObjectHideFlags: 0

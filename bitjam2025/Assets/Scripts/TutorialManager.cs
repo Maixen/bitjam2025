@@ -11,6 +11,7 @@ public class TutorialManager : MonoBehaviour
 
     [SerializeField] private GameObject tutorialDisplay;
     [SerializeField] private SpriteRenderer textDisplay;
+    [SerializeField] private Animator text_a;
 
     public List<Sprite> tutorialMain = new List<Sprite>();
     public List<Sprite> tutorialExtraItems = new List<Sprite>();
@@ -20,9 +21,14 @@ public class TutorialManager : MonoBehaviour
     public List<Sprite> tutorialMinigameBug = new List<Sprite>();
     public List<Sprite> tutorialMinigameSoul = new List<Sprite>();
 
+    [SerializeField] private float timeToSwapSpriteInAnimation;
+    [SerializeField] private float timeToSwapSpriteDelayInAnimation;
+
     private List<Sprite> currentTutorial;
     private int currentIndex;
     private float time;
+
+    private bool inAnimation;
 
     private void Awake()
     {
@@ -46,12 +52,14 @@ public class TutorialManager : MonoBehaviour
         currentTutorial = tutorial;
         currentIndex = 0;
         time = 0f;
+        inAnimation = false;
     }
 
     private void Update()
     {
+        if (inAnimation) { return; }
         if (currentTutorial == null || currentIndex >= currentTutorial.Count) { tutorialDisplay.SetActive(false); return; }
-        time += Time.deltaTime;
+        time += Time.unscaledDeltaTime;
 
         if (time > timeToGoOn || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
@@ -64,8 +72,18 @@ public class TutorialManager : MonoBehaviour
             }
             else
             {
-                textDisplay.sprite = currentTutorial[currentIndex];
+                inAnimation = true;
+                StartCoroutine(Swap());
             }
         }
+    }
+
+    private IEnumerator Swap()
+    {
+        text_a.SetTrigger("Swap");
+        yield return new WaitForSeconds(timeToSwapSpriteInAnimation);
+        textDisplay.sprite = currentTutorial[currentIndex];
+        yield return new WaitForSeconds(timeToSwapSpriteInAnimation);
+        inAnimation = false;
     }
 }
