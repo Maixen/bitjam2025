@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
@@ -17,6 +19,13 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject credits;
 
     [SerializeField] private AudioSource audioSourceOnStart;
+
+    [SerializeField] private AudioMixer audioMixer;
+
+    [SerializeField] private float snapRangeForVolumeSliders;
+
+    [SerializeField] private Slider musicSlider;
+    [SerializeField] private Slider sfxSlider;
 
     private bool onMainMenu;
 
@@ -84,5 +93,29 @@ public class MenuManager : MonoBehaviour
     {
         options.SetActive(false);
         credits.SetActive(false);
+    }
+
+    public void ChangeAudioMusic(float value)
+    {
+        value = ReturnSnappedValue(value);
+        musicSlider.value = value;
+        audioMixer.SetFloat("musicVol", value);
+    }
+
+    public void ChangeAudioSFX(float value)
+    {
+        value = ReturnSnappedValue(value);
+        sfxSlider.value = value;
+        audioMixer.SetFloat("sfxVol", value);
+    }
+
+    private float ReturnSnappedValue(float value)
+    {
+        if ((value + snapRangeForVolumeSliders >= 0 && value < 0)
+         || (value - snapRangeForVolumeSliders <= 0 && value > 0))
+        {
+            return 0;
+        }
+        return value;
     }
 }

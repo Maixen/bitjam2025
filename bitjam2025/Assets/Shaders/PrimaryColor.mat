@@ -41,5 +41,5 @@ Material:
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _OriginalColor: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _TargetColor: {r: 0.6156863, g: 0, b: 0.6039718, a: 1}
+    - _TargetColor: {r: 0.9916408, g: 1, b: 0, a: 1}
   m_BuildTextureStacks: []

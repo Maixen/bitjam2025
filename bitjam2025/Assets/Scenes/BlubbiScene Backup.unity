@@ -1753,12 +1753,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2741174281772083115, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741174281772083115, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741174281772083115, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2741174281772083115, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.93
       objectReference: {fileID: 0}
     - target: {fileID: 2741174281772083115, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1797,6 +1805,10 @@ PrefabInstance:
       value: SpeechBubble
       objectReference: {fileID: 0}
     - target: {fileID: 3848226906509263205, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833482290827588793, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
