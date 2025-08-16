@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TutorialManager : MonoBehaviour
 {
     public static TutorialManager instance;
+
+    [HideInInspector] public UnityAction tutorialEnd;
+    [HideInInspector] public UnityAction tutorialChanged;
 
     [SerializeField] private float timeToGoOn;
     [SerializeField] private float timeToStartTutorial;
@@ -24,6 +28,9 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private float timeToSwapSpriteInAnimation;
     [SerializeField] private float timeToSwapSpriteDelayInAnimation;
 
+    [SerializeField] private AudioSource frog_audioSource;
+    [SerializeField] private Vector2 minMaxFrogAudioPitchVariation;
+
     private List<Sprite> currentTutorial;
     private int currentIndex;
     private float time;
@@ -37,7 +44,7 @@ public class TutorialManager : MonoBehaviour
 
     private void Start()
     {
-        Invoke(nameof(StartMainTutorialResolver), timeToStartTutorial);
+        //Invoke(nameof(StartMainTutorialResolver), timeToStartTutorial);
     }
 
     private void StartMainTutorialResolver()
@@ -47,8 +54,10 @@ public class TutorialManager : MonoBehaviour
 
     public void StartTutorial(List<Sprite> tutorial)
     {
+        tutorialChanged.Invoke();
         tutorialDisplay.SetActive(true);
         textDisplay.sprite = tutorial[0]; // First Sprite
+        PlayAudio();
         currentTutorial = tutorial;
         currentIndex = 0;
         time = 0f;
@@ -67,6 +76,8 @@ public class TutorialManager : MonoBehaviour
             currentIndex++;
             if (currentIndex >= currentTutorial.Count)
             {
+                tutorialEnd.Invoke();
+                tutorialChanged.Invoke();
                 currentTutorial = null;
                 tutorialDisplay.SetActive(false);
             }
@@ -83,7 +94,15 @@ public class TutorialManager : MonoBehaviour
         text_a.SetTrigger("Swap");
         yield return new WaitForSeconds(timeToSwapSpriteInAnimation);
         textDisplay.sprite = currentTutorial[currentIndex];
+        PlayAudio();
         yield return new WaitForSeconds(timeToSwapSpriteInAnimation);
         inAnimation = false;
+    }
+
+    private void PlayAudio()
+    {
+        float randomPitch = Random.Range(minMaxFrogAudioPitchVariation.x, minMaxFrogAudioPitchVariation.y);
+        frog_audioSource.pitch = randomPitch;
+        frog_audioSource.Play();
     }
 }

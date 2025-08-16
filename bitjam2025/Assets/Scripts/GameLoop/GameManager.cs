@@ -47,8 +47,21 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        TutorialManager.instance.StartTutorial(TutorialManager.instance.tutorialMain);
+        TutorialManager.instance.tutorialEnd += StartEndResolver;
+        TutorialManager.instance.tutorialChanged += TutorialResolver;
+    }
+
+    public void StartEndResolver()
+    {
         StartCoroutine(NewPlant());
         wallAnimator.SetTrigger("Start");
+    }
+
+    public void TutorialResolver()
+    {
+        TutorialManager.instance.tutorialEnd -= StartEndResolver;
+        TutorialManager.instance.tutorialChanged -= TutorialResolver;
     }
 
     public IEnumerator NewPlant()
