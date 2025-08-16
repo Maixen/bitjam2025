@@ -10,6 +10,8 @@ public class MenuButtonLogic : MonoBehaviour
 
     [SerializeField] private string functionName;
 
+    [SerializeField] private AudioSource audioSource;
+
 
     private Vector2 targetPosition;
     public float speed;
@@ -24,6 +26,7 @@ public class MenuButtonLogic : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        audioSource.Play();
         targetPosition = extraPos;
     }
 

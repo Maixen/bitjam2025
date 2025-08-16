@@ -16,6 +16,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject options;
     [SerializeField] private GameObject credits;
 
+    [SerializeField] private AudioSource audioSourceOnStart;
+
     private bool onMainMenu;
 
     private void Awake()
@@ -41,6 +43,7 @@ public class MenuManager : MonoBehaviour
                 onMainMenu = true;
                 animator.SetTrigger("Start");
                 Invoke(nameof(TurnOffAnimator), animatorTurnOffTime);
+                audioSourceOnStart.Play();
             }
         }
     }

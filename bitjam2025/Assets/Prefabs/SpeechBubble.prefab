@@ -1,5 +1,111 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1318787775674929307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8540427289590447005}
+  - component: {fileID: 1338112348725173078}
+  - component: {fileID: 5552667087864493034}
+  m_Layer: 0
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8540427289590447005
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318787775674929307}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.0833334, y: 0, z: 0}
+  m_LocalScale: {x: 0.07, y: 0.07, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2392753755317269550}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1338112348725173078
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318787775674929307}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 9db17e3c41173d648bf8c34b81bd036a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 7
+  m_Sprite: {fileID: 170612255, guid: 6aa64292584166d468caf77d7e288804, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!95 &5552667087864493034
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318787775674929307}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ee4f37aed8bb2044c8094a9c3cd2308f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1506877199428733278
 GameObject:
   m_ObjectHideFlags: 0
@@ -27,10 +133,10 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 11.8125, y: 2.8125, z: 1}
+  m_LocalScale: {x: 3.9375, y: 0.9375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2741174281772083115}
+  m_Father: {fileID: 2392753755317269550}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2066885071026944247
 SpriteRenderer:
@@ -194,6 +300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2741174281772083115}
+  - component: {fileID: 6894535313878334559}
   m_Layer: 0
   m_Name: SpeechBubble
   m_TagString: Untagged
@@ -215,9 +322,52 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2392753755317269550}
-  - {fileID: 8570006299223841394}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6894535313878334559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3848226906509263205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b61ebcaadfc89945af95417f399e1d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToGoOn: 3.5
+  timeToStartTutorial: 1
+  tutorialDisplay: {fileID: 7833482290827588793}
+  textDisplay: {fileID: 1338112348725173078}
+  text_a: {fileID: 5552667087864493034}
+  tutorialMain:
+  - {fileID: 662118801, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: 789888770, guid: 6aa64292584166d468caf77d7e288804, type: 3}
+  - {fileID: 1597121650, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: 373891556, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: 1921845687, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: 130609779, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: -1013217663, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: -1965264480, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: -79195600, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: -1234266497, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: -228424054, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: -1316654622, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: 885590799, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: -1563921923, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: 1437762169, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: 170612255, guid: 6aa64292584166d468caf77d7e288804, type: 3}
+  - {fileID: -2034991928, guid: 6aa64292584166d468caf77d7e288804, type: 3}
+  - {fileID: -728350569, guid: 6aa64292584166d468caf77d7e288804, type: 3}
+  tutorialExtraItems: []
+  tutorialEndLoose: []
+  tutorialEndWin: []
+  tutorialMinigameWater: []
+  tutorialMinigameBug: []
+  tutorialMinigameSoul: []
+  timeToSwapSpriteInAnimation: 0.5
+  timeToSwapSpriteDelayInAnimation: 0.5
 --- !u!1 &6428622909105593089
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,6 +484,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7421786465331435722}
+  - {fileID: 8540427289590447005}
+  - {fileID: 8570006299223841394}
   m_Father: {fileID: 2741174281772083115}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2933443278914171917
