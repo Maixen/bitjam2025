@@ -1663,6 +1663,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Text_01_74
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 144
+        width: 132
+        height: 6
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f805a2470396d04e88371ddb5977760
+      internalID: 1180494001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_01_75
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 128
+        width: 104
+        height: 6
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f14b7b24abc13e4d85532b131d67fbc
+      internalID: 294226107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_01_76
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 160
+        width: 128
+        height: 6
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 958fb6605d6aa2e4c813a58b72374c8f
+      internalID: -416172725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_01_77
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 240
+        width: 17
+        height: 6
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a54079c7c65199c4a85c86393cb09de3
+      internalID: -380651841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1746,6 +1830,10 @@ TextureImporter:
       Text_01_71: -1074728631
       Text_01_72: 1477766257
       Text_01_73: -2045901853
+      Text_01_74: 1180494001
+      Text_01_75: 294226107
+      Text_01_76: -416172725
+      Text_01_77: -380651841
       Text_01_8: 1965735903
       Text_01_9: 1952219035
   mipmapLimitGroupName: 
