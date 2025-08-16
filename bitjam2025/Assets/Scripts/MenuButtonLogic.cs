@@ -8,6 +8,8 @@ public class MenuButtonLogic : MonoBehaviour
     [SerializeField] private Vector2 normalPos;
     [SerializeField] private float targetXOffset;
 
+    [SerializeField] private GameObject ownIcon;
+
     [SerializeField] private string functionName;
 
     [SerializeField] private AudioSource audioSource;
@@ -28,11 +30,14 @@ public class MenuButtonLogic : MonoBehaviour
     {
         audioSource.Play();
         targetPosition = extraPos;
+        ownIcon.SetActive(true);
+        MenuManager.instance.ResetMenu();
     }
 
     private void OnMouseExit()
     {
         targetPosition = normalPos;
+        ownIcon.SetActive(false);
     }
 
     private void OnMouseDown()

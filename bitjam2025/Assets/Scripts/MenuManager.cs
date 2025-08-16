@@ -18,6 +18,12 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject options;
     [SerializeField] private GameObject credits;
 
+    [SerializeField] private GameObject iconStartGame;
+    [SerializeField] private GameObject iconEndlessMode;
+    [SerializeField] private GameObject iconOptioins;
+    [SerializeField] private GameObject iconCredits;
+    [SerializeField] private GameObject iconExit;
+
     [SerializeField] private AudioSource audioSourceOnStart;
 
     [SerializeField] private AudioMixer audioMixer;
@@ -28,6 +34,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Slider sfxSlider;
 
     private bool onMainMenu;
+
+    private bool resettable;
 
     private void Awake()
     {
@@ -74,14 +82,25 @@ public class MenuManager : MonoBehaviour
 
     public void Options()
     {
-        ResetMenu();
+        ResetMenu(true);
+        resettable = false;
         options.SetActive(true);
+        CancelInvoke(nameof(BufferForReset));
+        Invoke(nameof(BufferForReset), 2f);
     }
 
     public void Credits()
     {
-        ResetMenu();
+        ResetMenu(true);
+        resettable = false;
         credits.SetActive(true);
+        CancelInvoke(nameof(BufferForReset));
+        Invoke(nameof(BufferForReset), 2f);
+    }
+
+    public void BufferForReset()
+    {
+        resettable = true;
     }
 
     public void Exit()
@@ -89,10 +108,20 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
-    private void ResetMenu()
+    public void ResetMenu(bool force = false)
     {
+        if (!force && !resettable) { return; }
         options.SetActive(false);
         credits.SetActive(false);
+    }
+
+    private void ResetMenuHover()
+    {
+        iconStartGame.SetActive(false);
+        iconEndlessMode.SetActive(false);
+        iconOptioins.SetActive(false);
+        iconCredits.SetActive(false);
+        iconExit.SetActive(false);
     }
 
     public void ChangeAudioMusic(float value)
