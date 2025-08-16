@@ -90,6 +90,7 @@ public class WaterMinigame : MonoBehaviour
         thirstParticles.gameObject.SetActive(false);
         playable = false;
         plantAnimator.SetTrigger("End");
+        FlowerCheck.instance.MinigameWasBeaten(0);
         return;
     }
 

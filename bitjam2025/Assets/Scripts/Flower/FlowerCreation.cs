@@ -24,19 +24,15 @@ public class FlowerCreation : MonoBehaviour
     [SerializeField, Range(0f,1f)] private float chanceOfBadFlower;
     [SerializeField, Range(1,3)] private int maxBadFlowerParts;
     [SerializeField] private bool minigamesAllowed;
-    [SerializeField, Range(1, 3)] private int maxMinigames;
+    [SerializeField, Range(0, 3)] private int maxMinigames;
+    [SerializeField] GameObject tools;
 
-    enum Minigames
-    {
-        Water = 0,
-        Bugs = 1,
-        Soul = 2,
-        None = -1
-    }
 
     private void Awake()
     {
         instance = this;
+        if(!minigamesAllowed)
+            tools.SetActive(false);
     }
 
     public GameObject CreateFlower()
@@ -50,28 +46,36 @@ public class FlowerCreation : MonoBehaviour
         newFlower.transform.localScale = spawnSize;
         newFlower.GetComponent<FlowerData>().GetFlowerData(flowerSprites, badParts);
         if (minigamesAllowed)
-            TurnOnMinigames(SelectRandomMinigames(Random.Range(1, maxMinigames)), ref newFlower);
+            TurnOnMinigames(SelectRandomMinigames(Random.Range(1, maxMinigames)));
         print("Flower was printed");
         FlowerCheck.instance.GetAnswers(badParts);
         return newFlower;
     }
 
-    private void TurnOnMinigames(List<Minigames> games, ref GameObject flower)
+    private bool[] SelectRandomMinigames(int amountOfGames)
     {
-        SendMinigameInfo(games);
-        for(int i = 0; i < games.Count;i++)
+        bool[] games = new bool[3] {false,false,false};
+        for(int i = 0; i< amountOfGames; i++)
         {
-            flower.GetComponent<FlowerData>().UnlockMinigame((int)games[i]);
-            print("Minigame " + games[i]);
+            int random = Random.Range(0,3);
+            if (games[random])
+            {
+                i--;
+                continue;
+            }
+            games[random] = true;
+            FlowerData.instance.UnlockMinigame(random);
         }
+        FlowerCheck.instance.SetMinigamesToBeBeaten(games);
+        return games;
     }
 
-    List<Minigames> SelectRandomMinigames(int amountOfGames)
+    private void TurnOnMinigames(bool[] games)
     {
-        List<Minigames> games = new List<Minigames>();
-        for (int i = 0; i < amountOfGames; i++)
-            games.Add((Minigames)Random.Range(0, 3));
-        return games;
+        for(int i = 0; i < games.Length; i++)
+        {
+            
+        }
     }
 
     List<Sprite> GetRandomFlowerSprites(bool[] isBadPart)
@@ -132,12 +136,5 @@ public class FlowerCreation : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(spawnPos, 1f);
-    }
-    private void SendMinigameInfo(List<Minigames> minigamesList)
-    {
-        bool[] minigames = new bool[3];
-        for (int i = 0; i < minigames.Length; i++)
-            continue;
-        FlowerCheck.instance.SetMinigamesToBeBeaten(null);
     }
 }

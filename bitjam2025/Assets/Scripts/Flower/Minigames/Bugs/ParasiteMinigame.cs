@@ -15,8 +15,10 @@ public class ParasiteMinigame : MonoBehaviour
     [SerializeField] private int bugsLeft;
     [SerializeField] private Vector2 bugSpawnTimeRange;
     [SerializeField] private float nextBugSpawnsIn;
+    [SerializeField] private Vector2 bugBaseSpawnPos;
     [SerializeField] private Vector2 xBugSpawnBoundaries;
     [SerializeField] private Vector2 yBugSpawnBoundaries;
+    [SerializeField] private GameObject border;
     private Animator plantAnimator;
     //<3
     private float RandomizeFromRange(Vector2 range)
@@ -41,6 +43,7 @@ public class ParasiteMinigame : MonoBehaviour
         SpawnBug(new Vector2(RandomizeFromRange(xBugSpawnBoundaries), RandomizeFromRange(yBugSpawnBoundaries)));
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
         plantAnimator.SetTrigger("Bugs");
+        border.SetActive(true);
     }
 
     private void Update()
@@ -66,7 +69,7 @@ public class ParasiteMinigame : MonoBehaviour
 
     void SpawnBug(Vector2 spawnPos)
     {
-        GameObject newBug = Instantiate(bugPrefab, (Vector2)transform.position + spawnPos, Quaternion.Euler(0, 0, Random.Range(0, 360)));
+        GameObject newBug = Instantiate(bugPrefab, (Vector2)bugBaseSpawnPos + spawnPos, Quaternion.Euler(0, 0, Random.Range(0, 360)));
         newBug.GetComponent<SpriteRenderer>().sprite = bugSprites[Random.Range(0, bugSprites.Count)];
         newBug.GetComponent<BugBehaviour>().minigameParent = this;
         bugSpawnCount--;
@@ -83,6 +86,8 @@ public class ParasiteMinigame : MonoBehaviour
         playable = false;
         bugParticles.gameObject.SetActive(false);
         plantAnimator.SetTrigger("End");
+        FlowerCheck.instance.MinigameWasBeaten(1);
+        border.SetActive(false);
     }
     
 }

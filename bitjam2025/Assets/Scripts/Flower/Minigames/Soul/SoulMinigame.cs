@@ -23,6 +23,7 @@ public class SoulMinigame : MonoBehaviour
     [SerializeField] private Vector2 pelletsSpeedRange;
     [SerializeField] private List<Vector2> pelletspawnPlaces;
     private Animator plantAnimator;
+    [SerializeField]private GameObject border;
 
 
 
@@ -50,6 +51,7 @@ public class SoulMinigame : MonoBehaviour
         scissor = Instantiate(scissorPrefab,scissorSpawnPos,Quaternion.identity);
         gameHasStarted = true;
         plantAnimator.SetTrigger("Soul");
+        border.SetActive(true);
     }
 
     private void Update()
@@ -76,6 +78,7 @@ public class SoulMinigame : MonoBehaviour
         playable = false;
         sweatParticles.gameObject.SetActive(false);
         plantAnimator.SetTrigger("End");
+        FlowerCheck.instance.MinigameWasBeaten(2);
         Destroy(scissor);
     }
 

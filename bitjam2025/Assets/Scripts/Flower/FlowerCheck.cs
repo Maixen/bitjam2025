@@ -28,6 +28,7 @@ public class FlowerCheck : MonoBehaviour
     {
         assumptions = new bool[5];
         allCheckboxes = gameObject.GetComponentsInChildren<CheckBoxInteract>().ToList();
+        minigamesBeaten = new bool[3];
     }
 
     public void FlowerNowExists()
@@ -44,11 +45,13 @@ public class FlowerCheck : MonoBehaviour
         GetAssumptions();
         int badAmount = GetAmountOff(new bool[5]);
         bool correct;
+        bool perfection = false;
         if (GetAmountOff(assumptions) != 0 || (badAmount > 0 && flowerWasSold) || (badAmount == 0 && !flowerWasSold))
         {
             //GetPoints(-)
             print("Wrong guess");
             totalWrongFlowers++;
+            print(totalWrongFlowers);
             correct = false;
         }
         else
@@ -56,20 +59,30 @@ public class FlowerCheck : MonoBehaviour
             //GetPoints(+)
             print("Right guess");
             correct = true;
-            if (minigamesBeaten == minigamesSupposedToBeat)
+            if (CheckifMinigamesDone())
             {
-                GameManager.Instance.AddMoney(20);
+                perfection = true;
                 print("Perfektionist, Punktebonus");
             }
-            else
-                GameManager.Instance.AddMoney(10);
         }
         for ( int i = 0; i < allCheckboxes.Count; i++ )
         {
             allCheckboxes[i].ResetValue();
         }
+        MoneyControl.Instance.FlowerReward(correct, perfection);
         StartCoroutine(GameManager.Instance.GetRidOfPlant(flowerWasSold, correct));
         return;
+    }
+
+    private bool CheckifMinigamesDone()
+    {
+        for ( int i = 0;i < minigamesBeaten.Length;i++ )
+        {
+            print(minigamesSupposedToBeat[i] + " " + minigamesBeaten[i]);
+            if (minigamesBeaten[i] != minigamesSupposedToBeat[i])
+                return false;
+        }
+        return true;
     }
 
     private int GetAmountOff(bool[] arrayToCheck)

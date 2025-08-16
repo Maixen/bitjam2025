@@ -12,7 +12,6 @@ public class MoneyDisplayScript : MonoBehaviour
     [SerializeField, Range(0.1f,10)] private float numberCountUpsPerSecond;
     [SerializeField] private float countUpPercent;
     private float untilNextCount;
-    bool valueJustGotChanged = false;
 
 
     private void Start()
@@ -29,7 +28,6 @@ public class MoneyDisplayScript : MonoBehaviour
     public void ChangeValueBy(int addedValue)
     {
         number += addedValue;
-        valueJustGotChanged = true;
         if (addedValue < 0)
             addedValue = 0;
     }
@@ -49,6 +47,12 @@ public class MoneyDisplayScript : MonoBehaviour
             return;
         }
         untilNextCount = 0;
+        if (number < 0)
+        {
+            number = 0;
+        }
+        if(numberOnDisplay < 0)
+            numberOnDisplay = 0;
         float numberAddedToDisplay = ((float)(number - numberOnDisplay) * countUpPercent);
         if(numberAddedToDisplay < 0 && numberAddedToDisplay > -1) 
             numberAddedToDisplay = -1;
@@ -57,6 +61,7 @@ public class MoneyDisplayScript : MonoBehaviour
         numberOnDisplay += (int)numberAddedToDisplay;
         int[] digits = new int[numberRenderers.Count];
         int[] digitsWithNoGoodArray = IntToIntArray(numberOnDisplay);
+        
         if (digitsWithNoGoodArray.Length > digits.Length)
             digitsWithNoGoodArray = new int[5] {9,9,9,9,9};
         for (int i = 0; i < digitsWithNoGoodArray.Length; i++)

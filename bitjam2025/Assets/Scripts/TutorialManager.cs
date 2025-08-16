@@ -63,6 +63,7 @@ public class TutorialManager : MonoBehaviour
         currentIndex = 0;
         time = 0f;
         inAnimation = false;
+        Timer.instance?.TogglePause();
     }
 
     private void Update()
@@ -82,6 +83,7 @@ public class TutorialManager : MonoBehaviour
                 if (tutorialChanged != null)
                     tutorialChanged.Invoke();
                 currentTutorial = null;
+                Timer.instance?.TogglePause();
                 tutorialDisplay.SetActive(false);
             }
             else

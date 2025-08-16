@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c71abe6351e24c4da37b3a3b7ab48cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnDegreesAmountPerClick: 60
+  turnDegreesAmountPerClick: 45
   turnOffsetDegrees: -115
 --- !u!61 &2993844722249414540
 BoxCollider2D:
