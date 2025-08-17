@@ -87,6 +87,7 @@ public class ParasiteMinigame : MonoBehaviour
         bugParticles.gameObject.SetActive(false);
         plantAnimator.SetTrigger("End");
         FlowerCheck.instance.MinigameWasBeaten(1);
+        FlowerCreation.instance.MinigameButtonStopWiggle(1);
         border.SetActive(false);
     }
     

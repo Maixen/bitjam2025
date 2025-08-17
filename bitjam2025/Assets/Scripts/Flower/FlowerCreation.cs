@@ -26,12 +26,23 @@ public class FlowerCreation : MonoBehaviour
     [SerializeField] public bool minigamesAllowed;
     [SerializeField, Range(0, 3)] private int maxMinigames;
     [SerializeField] GameObject tools;
+    [SerializeField] private SetMinigameView[] allMinigameButtons;
 
 
     private void Awake()
     {
         instance = this;
         ToolsVisible(minigamesAllowed);
+    }
+
+    public void MinigameButtonShouldWiggle(int buttonIndex)
+    {
+        allMinigameButtons[buttonIndex].AllowWiggle();
+    }
+
+    public void MinigameButtonStopWiggle(int buttonIndex)
+    {
+        allMinigameButtons[buttonIndex].StopWiggle();
     }
 
     private void ToolsVisible(bool yes)
@@ -81,6 +92,7 @@ public class FlowerCreation : MonoBehaviour
             games[random] = true;
             print("minigame " + random + " was added");
             FlowerData.instance.UnlockMinigame(random);
+            MinigameButtonShouldWiggle(random);
         }
         FlowerCheck.instance.SetMinigamesToBeBeaten(games);
         return games;

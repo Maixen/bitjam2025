@@ -780,6 +780,9 @@ MonoBehaviour:
   minigameType: 2
   isActive: 0
   checkListAnimator: {fileID: 1770604885}
+  basePos: {x: 0, y: 0, z: 0}
+  maxWiggle: 0.02
+  mayWiggle: 0
 --- !u!212 &105918713
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4779,8 +4782,12 @@ MonoBehaviour:
   chanceOfBadFlower: 0.5
   maxBadFlowerParts: 1
   minigamesAllowed: 0
-  maxMinigames: 1
+  maxMinigames: 0
   tools: {fileID: 1908274938}
+  allMinigameButtons:
+  - {fileID: 1938923244}
+  - {fileID: 987908683}
+  - {fileID: 105918712}
 --- !u!4 &814990623
 Transform:
   m_ObjectHideFlags: 0
@@ -5802,6 +5809,9 @@ MonoBehaviour:
   minigameType: 1
   isActive: 0
   checkListAnimator: {fileID: 1770604885}
+  basePos: {x: 0, y: 0, z: 0}
+  maxWiggle: 0.02
+  mayWiggle: 0
 --- !u!212 &987908684
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11884,6 +11894,7 @@ MonoBehaviour:
   - 60
   - 120
   tutorialEndScenePlant: {fileID: 0}
+  tutorialOn: 0
 --- !u!4 &1832372561
 Transform:
   m_ObjectHideFlags: 0
@@ -12605,6 +12616,9 @@ MonoBehaviour:
   minigameType: 0
   isActive: 0
   checkListAnimator: {fileID: 1770604885}
+  basePos: {x: 0, y: 0, z: 0}
+  maxWiggle: 0.02
+  mayWiggle: 0
 --- !u!212 &1938923245
 SpriteRenderer:
   m_ObjectHideFlags: 0

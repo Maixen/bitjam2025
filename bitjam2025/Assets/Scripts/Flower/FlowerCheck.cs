@@ -28,6 +28,7 @@ public class FlowerCheck : MonoBehaviour
         return totalWrongFlowers;
     }
 
+
     private void Start()
     {
         assumptions = new bool[5];
@@ -74,6 +75,8 @@ public class FlowerCheck : MonoBehaviour
         {
             allCheckboxes[i].ResetValue();
         }
+        for (int i = 0; i < 3; i++)
+            FlowerCreation.instance.MinigameButtonStopWiggle(i);
         MoneyControl.Instance.FlowerReward(correct, perfection);
         minigamesBeaten = new bool[3];
         minigamesSupposedToBeat = new bool[3];
@@ -87,9 +90,11 @@ public class FlowerCheck : MonoBehaviour
             return true;
         if (minigamesSupposedToBeat == null)
             return true;
+        if(minigamesBeaten == null)
+            return true;
         for ( int i = 0;i < minigamesBeaten.Length;i++ )
         {
-            print("Minigame " + i + minigamesSupposedToBeat[i] + " " + minigamesBeaten[i]);
+            //print("Minigame " + i + minigamesSupposedToBeat[i] + " " + minigamesBeaten[i]);
             if (minigamesBeaten[i] != minigamesSupposedToBeat[i])
                 return false;
         }

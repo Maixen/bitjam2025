@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SetMinigameView : MonoBehaviour
@@ -13,7 +14,14 @@ public class SetMinigameView : MonoBehaviour
     [SerializeField] private Minigames minigameType;
     [SerializeField] private bool isActive;
     [SerializeField] Animator checkListAnimator;
-    
+    [SerializeField] private Vector3 basePos;
+    [SerializeField] private float maxWiggle;
+    [SerializeField] private bool mayWiggle;
+
+    private void Start()
+    {
+        basePos = transform.position;
+    }
 
     public void ToggleMinigame()
     {
@@ -54,6 +62,24 @@ public class SetMinigameView : MonoBehaviour
             if (minigameButtons[i].GetButtonState() != (int)minigameType)
                 minigameButtons[i].ResetButton();
         }
+    }
+
+    public void AllowWiggle()
+    {
+        mayWiggle = true;
+    }
+
+    public void StopWiggle()
+    {
+        mayWiggle = false;
+    }
+
+    private void Update()
+    {
+        if (!mayWiggle)
+            return;
+        transform.position = basePos + maxWiggle * Random.onUnitSphere;
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }
 
 }

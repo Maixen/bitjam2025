@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     [SerializeField, Range(1, 3f)] private int[] tutMaxMinigames;
     [SerializeField, Range(30,200)] private float[] tutRoundTimes;
     [SerializeField] private GameObject tutorialEndScenePlant;
+    [SerializeField] private bool tutorialOn;
 
 
     private void Awake()
@@ -81,6 +82,7 @@ public class GameManager : MonoBehaviour
     {
         checklist_a.SetTrigger("Hide");
         Timer.instance.TogglePause();
+        tutorialOn = true;
         switch (requiredScene)
         {
             case 0:
@@ -120,6 +122,7 @@ public class GameManager : MonoBehaviour
     public void StartEndResolver()
     {
         StartCoroutine(NewPlant());
+        tutorialOn = false;
         if(!minigameIsPlayed)
         {
             checklist_a.ResetTrigger("Hide");
@@ -133,6 +136,7 @@ public class GameManager : MonoBehaviour
     {
         checklist_a.SetTrigger("Hide");
         int round = Timer.instance.GetRoundNum();
+        tutorialOn = false;
         FlowerCreation.instance.SetupFlowerCreation(tutBadFlowerChances[round], tutBadFlowerParts[round], tutMaxMinigames[round]);
         Timer.instance.ChangeRoundTime(tutRoundTimes[round]);
         Timer.instance.PauseOff();
@@ -145,6 +149,7 @@ public class GameManager : MonoBehaviour
     public void StoryModeEndResolver()
     {
         checklist_a.SetTrigger("Hide");
+        tutorialOn = false;
         FlowerCreation.instance.minigamesAllowed = false;
         gameIsDone = true;
         Invoke(nameof(GoodEnding),5);
@@ -181,9 +186,12 @@ public class GameManager : MonoBehaviour
         ColorChanger.instance.NextPalette();
         conveyor_a.SetTrigger("First");
         conveyor_audioSource.Play();
-        checklist_a.SetTrigger("Swap");
-        checklist_audioSource.Play();
-        checklist_audioSource.PlayDelayed(0.2f);
+        if(!tutorialOn)
+        {
+            checklist_a.SetTrigger("Swap");
+            checklist_audioSource.Play();
+            checklist_audioSource.PlayDelayed(0.2f);
+        }
     }
 
     public IEnumerator GetRidOfPlant(bool plantWasSold, bool correct)

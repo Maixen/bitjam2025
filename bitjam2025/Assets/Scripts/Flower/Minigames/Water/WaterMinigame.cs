@@ -91,6 +91,7 @@ public class WaterMinigame : MonoBehaviour
         playable = false;
         plantAnimator.SetTrigger("End");
         FlowerCheck.instance.MinigameWasBeaten(0);
+        FlowerCreation.instance.MinigameButtonStopWiggle(0);
         return;
     }
 

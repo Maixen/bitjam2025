@@ -83,7 +83,8 @@ public class SoulMinigame : MonoBehaviour
         FlowerCheck.instance.MinigameWasBeaten(2);
         Destroy(scissor);
         border.SetActive(false);
-        scissors_audioSource.Play(100);
+        scissors_audioSource.PlayDelayed(0.1f);
+        FlowerCreation.instance.MinigameButtonStopWiggle(2);
     }
 
     private float ResetSpawnTime()
