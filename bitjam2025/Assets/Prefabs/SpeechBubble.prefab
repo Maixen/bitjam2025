@@ -488,10 +488,20 @@ MonoBehaviour:
   - {fileID: -2004742858, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
   - {fileID: -228897682, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
   - {fileID: -422495498, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
-  tutorial3: []
-  tutorial4: []
-  tutorial5: []
-  tutorialEndScene: []
+  tutorial3:
+  - {fileID: 1180494001, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: 294226107, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  tutorial4:
+  - {fileID: -416172725, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  tutorial5:
+  - {fileID: -380651841, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  tutorialEndScene:
+  - {fileID: -1997117691, guid: 70e127b2251a5664abf64c5d1ff50f18, type: 3}
+  - {fileID: -1781627711, guid: 70e127b2251a5664abf64c5d1ff50f18, type: 3}
+  - {fileID: -1450127560, guid: 70e127b2251a5664abf64c5d1ff50f18, type: 3}
+  - {fileID: -1238573885, guid: 70e127b2251a5664abf64c5d1ff50f18, type: 3}
+  - {fileID: -758402549, guid: 70e127b2251a5664abf64c5d1ff50f18, type: 3}
+  - {fileID: -339263750, guid: 70e127b2251a5664abf64c5d1ff50f18, type: 3}
   timeToSwapSpriteInAnimation: 0.5
   timeToSwapSpriteDelayInAnimation: 0.5
   frog_audioSource: {fileID: 1421827051500770771}

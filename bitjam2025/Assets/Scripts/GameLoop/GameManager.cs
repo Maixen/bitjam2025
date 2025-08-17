@@ -145,6 +145,7 @@ public class GameManager : MonoBehaviour
     public void StoryModeEndResolver()
     {
         checklist_a.SetTrigger("Hide");
+        FlowerCreation.instance.minigamesAllowed = false;
         gameIsDone = true;
         Invoke(nameof(GoodEnding),5);
     }
