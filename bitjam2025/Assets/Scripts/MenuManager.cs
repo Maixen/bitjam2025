@@ -50,6 +50,7 @@ public class MenuManager : MonoBehaviour
         ChangeAudioMusic(PlayerPrefs.GetFloat("Music",0));
         ChangeAudioSFX(PlayerPrefs.GetFloat("SFX",0));
         SetChangeColor(PlayerPrefs.GetInt("ChangeColor", 0));
+        resettable = true;
     }
 
     private void Update()
@@ -88,6 +89,7 @@ public class MenuManager : MonoBehaviour
     public void Options()
     {
         ResetMenu(true);
+        ResetMenuHover();
         resettable = false;
         options.SetActive(true);
         CancelInvoke(nameof(BufferForReset));
@@ -97,6 +99,7 @@ public class MenuManager : MonoBehaviour
     public void Credits()
     {
         ResetMenu(true);
+        ResetMenuHover();
         resettable = false;
         credits.SetActive(true);
         CancelInvoke(nameof(BufferForReset));
@@ -113,11 +116,12 @@ public class MenuManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void ResetMenu(bool force = false)
+    public bool ResetMenu(bool force = false)
     {
-        if (!force && !resettable) { return; }
+        if (!force && !resettable) { return false; }
         options.SetActive(false);
         credits.SetActive(false);
+        return true;
     }
 
     private void ResetMenuHover()

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
@@ -45,8 +46,11 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator wallAnimator;
     [SerializeField] private EndScreenBehaviour endScreen;
     [SerializeField] private bool isLevelWithFollowUp;
-    [SerializeField] private int levelNum;
-    
+    [SerializeField, Range(0, 1f)] private float[] tutBadFlowerChances;
+    [SerializeField, Range(1, 3)] private int[] tutBadFlowerParts;
+    [SerializeField, Range(1, 3f)] private int[] tutMaxMinigames;
+    [SerializeField, Range(30,200)] private float[] tutRoundTimes;
+
 
     private void Awake()
     {
@@ -60,27 +64,51 @@ public class GameManager : MonoBehaviour
         {
             Timer.instance.PauseOff();
             StartCoroutine(NewPlant());
-            return;
-        }   
-        if(levelNum == 0)
-        {
-            TutorialManager.instance.StartTutorial(TutorialManager.instance.tutorialMain);
-            TutorialManager.instance.tutorialEnd += StartEndResolver;
-            TutorialManager.instance.tutorialChanged += TutorialResolver;
+            wallAnimator.SetTrigger("Start");
             return;
         }
-        if (levelNum == 1)
+        StartNewTutorial(0);
+    }
+
+    public void StartNewTutorial(int requiredScene)
+    {
+        checklist_a.SetTrigger("Hide");
+        Timer.instance.TogglePause();
+        switch (requiredScene)
         {
-            return;
-            //hier die Items hinzufügen
+            case 0:
+                TutorialManager.instance.StartTutorial(TutorialManager.instance.tutorialMain);
+                TutorialManager.instance.tutorialEnd += StartEndResolver;
+                TutorialManager.instance.tutorialChanged += TutorialResolver;
+                break;
+            case 1:
+                FlowerCreation.instance.minigamesAllowed = true;
+                TutorialManager.instance.StartTutorial(TutorialManager.instance.tutorialExtraItems);
+                TutorialManager.instance.tutorialEnd += DialougeEndResolver;
+                TutorialManager.instance.tutorialChanged += TutorialResolver;
+                break;
         }
-        
     }
 
     public void StartEndResolver()
     {
         StartCoroutine(NewPlant());
+        wallAnimator.SetTrigger("EndGame");
         wallAnimator.SetTrigger("Start");
+        checklist_a.SetTrigger("Show");
+        checklist_a.ResetTrigger("Show");
+    }
+
+    public void DialougeEndResolver()
+    {
+        checklist_a.SetTrigger("Hide");
+        checklist_a.SetTrigger("Show");
+        int round = Timer.instance.GetRoundNum();
+        FlowerCreation.instance.SetupFlowerCreation(tutBadFlowerChances[round], tutBadFlowerParts[round], tutMaxMinigames[round]);
+        Timer.instance.ChangeRoundTime(tutRoundTimes[round]);
+        Timer.instance.PauseOff();
+        checklist_a.ResetTrigger("Hide");
+        checklist_a.ResetTrigger("Show");
     }
 
     public void TutorialResolver()

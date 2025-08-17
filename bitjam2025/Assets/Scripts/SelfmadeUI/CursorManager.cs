@@ -50,7 +50,7 @@ public class CursorManager : MonoBehaviour
             {
                 if (hit.collider.CompareTag("Restart"))
                 {
-                    SceneManager.LoadScene("Menu");
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                     return;
                 }
                 if (hit.collider.CompareTag("Menu"))

@@ -13,7 +13,7 @@ public class Timer : MonoBehaviour
     [SerializeField] private Sprite[] clockSprites;
     [SerializeField] private int currentClockSprite;
     [SerializeField] public bool isEndless;
-    [SerializeField] private int endlessStartNeededMoney;
+    [SerializeField] private int endlessNeededMoney;
     [SerializeField] private float neededMoneyGrowthPercent;
     [SerializeField] private int maxGrowthReachedAtRound;
     [Space]
@@ -34,9 +34,14 @@ public class Timer : MonoBehaviour
         isPaused = false;
     }
 
+    public int GetRoundNum()
+    {
+        return roundNum;
+    }
+
     public void TogglePause()
     {
-        isPaused = !isPaused;
+        isPaused = true;
         if (isPaused)
             normalTick_audioSource.enabled = false;
         else 
@@ -53,7 +58,8 @@ public class Timer : MonoBehaviour
     {
         if(isEndless)
             return true;
-        roundNum++;
+        if (!isEndless)
+            GameManager.Instance.StartNewTutorial(roundNum);
         if(roundNum >= maxFixedRoundNum)
             return false;
         return true;
@@ -71,8 +77,16 @@ public class Timer : MonoBehaviour
         int round = roundNum;
         if(roundNum > maxGrowthReachedAtRound)
             round = maxGrowthReachedAtRound;
-        int newRoundMoney = (int)(endlessStartNeededMoney * Mathf.Pow(1 + neededMoneyGrowthPercent, round));
-        return newRoundMoney;
+        float num = endlessNeededMoney;
+        num *= Mathf.Pow(1 + neededMoneyGrowthPercent, round);
+        print(endlessNeededMoney);
+        //endlessNeededMoney++;
+        return (int)num;
+    }
+
+    public void ChangeRoundTime(float newTime)
+    {
+        timeBetweenRounds = newTime;
     }
 
     private void Update()
@@ -97,6 +111,7 @@ public class Timer : MonoBehaviour
             return;
         }
         timeUntilnextRound = 0;
+        roundNum++;
         MoneyControl.Instance.Payday();
         alarm_audioSource.volume = 1f;
         alarm_audioSource.Play();
