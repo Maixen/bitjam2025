@@ -147,12 +147,14 @@ public class GameManager : MonoBehaviour
         checklist_a.SetTrigger("Show");
         checklist_a.ResetTrigger("Show");
         checklist_a.SetTrigger("Show");
+        MoneyControl.Instance.ResetPlayerMoney();
     }
 
     public void StoryModeEndResolver()
     {
         checklist_a.SetTrigger("Hide");
         tutorialOn = false;
+        FlowerData.instance?.gameObject.SetActive(false);
         FlowerCreation.instance.minigamesAllowed = false;
         gameIsDone = true;
         camera_a.SetTrigger("Zoom");

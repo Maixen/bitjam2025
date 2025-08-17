@@ -52,8 +52,6 @@ public class MoneyControl : MonoBehaviour
         if(!perfectionAchieved)
         {
             GivePlayerMoney(moneyByCorrectGuess);
-            streakamount = 0;
-            streakDisplay.SetNewValue(streakamount);
             return;
         }
         GivePlayerMoney(MoneyGainedOnStreak());
@@ -73,6 +71,11 @@ public class MoneyControl : MonoBehaviour
         playerMoney.ChangeValueBy(amount);
     }
 
+    public void ResetPlayerMoney()
+    {
+        playerMoney.SetNewValue(0);
+    }
+
     public void Payday()
     {
         if(playerMoney.GetValue() < neededMoney.GetValue())
@@ -86,8 +89,6 @@ public class MoneyControl : MonoBehaviour
         print("survived Round");
         if(!Timer.instance.AdvanceRound())
         {
-            //end of game, you won
-            GameManager.Instance.InitiateGameEnd(true);
             return;
         }
         neededMoney.SetNewValue(Timer.instance.GetNextRoundGoal());
