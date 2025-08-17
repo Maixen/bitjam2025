@@ -85,6 +85,8 @@ public class FlowerCheck : MonoBehaviour
     {
         if (!FlowerCreation.instance.minigamesAllowed)
             return true;
+        if (minigamesSupposedToBeat == null)
+            return true;
         for ( int i = 0;i < minigamesBeaten.Length;i++ )
         {
             print("Minigame " + i + minigamesSupposedToBeat[i] + " " + minigamesBeaten[i]);

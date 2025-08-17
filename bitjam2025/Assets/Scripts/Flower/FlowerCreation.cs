@@ -31,8 +31,23 @@ public class FlowerCreation : MonoBehaviour
     private void Awake()
     {
         instance = this;
-        if(!minigamesAllowed)
+        ToolsVisible(minigamesAllowed);
+    }
+
+    private void ToolsVisible(bool yes)
+    {
+        if (!yes)
             tools.SetActive(false);
+        else
+            tools.SetActive(true);
+    }
+
+    public void SetupFlowerCreation(float badFlowerChance, int maxBadparts, int maxMinis)
+    {
+        chanceOfBadFlower = badFlowerChance;
+        maxBadFlowerParts = maxBadparts;
+        maxMinigames = maxMinis;
+        ToolsVisible(minigamesAllowed);
     }
 
     public GameObject CreateFlower()

@@ -73,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 8
+  m_SortingOrder: 303
   m_Sprite: {fileID: 1995824883, guid: 90ba582f343635743bafdd0167b78ba7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -179,7 +179,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 300
   m_Sprite: {fileID: 170612255, guid: 6aa64292584166d468caf77d7e288804, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -284,7 +284,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 299
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.28235295, g: 0.19215688, b: 0.47450984, a: 1}
   m_FlipX: 0
@@ -369,7 +369,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 302
   m_Sprite: {fileID: -1779637065, guid: 055488f64cd75c542aae1be38e2b2f47, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -424,7 +424,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.25, y: 1.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2392753755317269550}
@@ -466,12 +466,32 @@ MonoBehaviour:
   - {fileID: 170612255, guid: 6aa64292584166d468caf77d7e288804, type: 3}
   - {fileID: -2034991928, guid: 6aa64292584166d468caf77d7e288804, type: 3}
   - {fileID: -728350569, guid: 6aa64292584166d468caf77d7e288804, type: 3}
-  tutorialExtraItems: []
-  tutorialEndLoose: []
-  tutorialEndWin: []
-  tutorialMinigameWater: []
-  tutorialMinigameBug: []
-  tutorialMinigameSoul: []
+  tutorialExtraItems:
+  - {fileID: 669740479, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: -1074728631, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: 1477766257, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: -2045901853, guid: 471e4fcf2f9163d4e90be11799b8fd98, type: 3}
+  - {fileID: -1742126762, guid: 6aa64292584166d468caf77d7e288804, type: 3}
+  - {fileID: 612514703, guid: 6aa64292584166d468caf77d7e288804, type: 3}
+  - {fileID: 1847590397, guid: 6aa64292584166d468caf77d7e288804, type: 3}
+  - {fileID: 1526209729, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+  - {fileID: 957089722, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+  - {fileID: 855326121, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+  - {fileID: 1492328648, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+  - {fileID: 1612853197, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+  - {fileID: -1601925952, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+  - {fileID: 931060054, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+  - {fileID: -1746490464, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+  - {fileID: -308849221, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+  - {fileID: -1909069367, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+  - {fileID: 1040818961, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+  - {fileID: -2004742858, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+  - {fileID: -228897682, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+  - {fileID: -422495498, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+  tutorial3: []
+  tutorial4: []
+  tutorial5: []
+  tutorialEndScene: []
   timeToSwapSpriteInAnimation: 0.5
   timeToSwapSpriteDelayInAnimation: 0.5
   frog_audioSource: {fileID: 1421827051500770771}
@@ -551,7 +571,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 301
   m_Sprite: {fileID: 46762412, guid: 90ba582f343635743bafdd0167b78ba7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -675,7 +695,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2392753755317269550
 Transform:
   m_ObjectHideFlags: 0
@@ -734,7 +754,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 300
   m_Sprite: {fileID: 21300000, guid: 6979df117fe2edc4fb1483734c775aa9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

@@ -82,7 +82,7 @@ public class TutorialManager : MonoBehaviour
                 if (tutorialChanged != null)
                     tutorialChanged.Invoke();
                 currentTutorial = null;
-                Timer.instance?.TogglePause();
+                Timer.instance?.PauseOff();
                 tutorialDisplay.SetActive(false);
             }
             else

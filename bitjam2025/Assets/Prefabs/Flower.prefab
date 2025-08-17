@@ -420,7 +420,7 @@ MonoBehaviour:
   waterEndFill: {x: 0.13, y: 0.8152131, z: 1}
   fillPercentPerSecondBase: 0.5
   maxFillSpeedOffset: 2
-  gamestoWinRange: {x: 1, y: 3}
+  gamestoWinRange: {x: 1, y: 4}
   gamestoWinAmount: 0
   gamesWon: 0
   percentToFill: 0
@@ -528,14 +528,14 @@ MonoBehaviour:
   sweatParticles: {fileID: 8318965895308674113}
   playable: 0
   gameHasStarted: 0
-  scissorSpawnPos: {x: 3.5, y: 2.25}
-  pelletsSpawnAmountRange: {x: 15, y: 20}
+  scissorSpawnPos: {x: 1.75, y: 2}
+  pelletsSpawnAmountRange: {x: 5, y: 15}
   pelletsLeftToSpawn: 0
   pelletsAlive: 0
   pelletsSpawnTimeRange: {x: 0.33, y: 0.66}
   timeUntilNextPellet: 0
   pelletsSpawnRadius: 2
-  pelletsSpeedRange: {x: 0.5, y: 0.8}
+  pelletsSpeedRange: {x: 0.5, y: 2}
   pelletspawnPlaces:
   - {x: 1, y: 0}
   - {x: 0.7, y: 0.7}
@@ -10913,13 +10913,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4677857381028124485}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8, y: 1.29, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.5, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 1.15, y: 1.25, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6620137480553653165}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &3281897948093082304
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11454,13 +11454,13 @@ MonoBehaviour:
   - {fileID: 1891587542, guid: ec074fe7fd1d87c45a33d980966c9b62, type: 3}
   playable: 0
   gameHasStarted: 0
-  bugSpawnAmountRange: {x: 10, y: 25}
+  bugSpawnAmountRange: {x: 8, y: 18}
   bugSpawnCount: 0
   bugsLeft: 0
-  bugSpawnTimeRange: {x: 0.2, y: 0.8}
+  bugSpawnTimeRange: {x: 0.05, y: 0.6}
   nextBugSpawnsIn: 0
-  bugBaseSpawnPos: {x: 3.5, y: 2.25}
-  xBugSpawnBoundaries: {x: -1.75, y: 1.75}
+  bugBaseSpawnPos: {x: 1.75, y: 2}
+  xBugSpawnBoundaries: {x: -1.5, y: 1.75}
   yBugSpawnBoundaries: {x: -1.25, y: 1.25}
   border: {fileID: 4677857381028124485}
 --- !u!1 &6309619316692240730
@@ -11859,13 +11859,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7773744720094970718}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.8, y: 1.29, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.5, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 1.15, y: 1.25, z: 0}
+  m_LocalScale: {x: 0.75, y: 0.4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 27858128391928416}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &8861927494774720168
 SpriteRenderer:
   m_ObjectHideFlags: 0

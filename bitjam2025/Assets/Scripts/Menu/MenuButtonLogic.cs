@@ -30,8 +30,8 @@ public class MenuButtonLogic : MonoBehaviour
     {
         audioSource.Play();
         targetPosition = extraPos;
+        if(MenuManager.instance.ResetMenu())
         ownIcon.SetActive(true);
-        MenuManager.instance.ResetMenu();
     }
 
     private void OnMouseExit()
