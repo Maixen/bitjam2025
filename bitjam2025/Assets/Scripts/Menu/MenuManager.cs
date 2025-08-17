@@ -34,6 +34,7 @@ public class MenuManager : MonoBehaviour
 
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
+    [SerializeField] private Slider paletteSlider;
 
     [SerializeField] private Animator wallA;
 
@@ -50,10 +51,12 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
+        PlayerPrefs.SetInt("ChangeColor", 0);
         ResetMenu();
         ChangeAudioMusic(PlayerPrefs.GetFloat("Music",0));
         ChangeAudioSFX(PlayerPrefs.GetFloat("SFX",0));
         SetChangeColor(PlayerPrefs.GetInt("ChangeColor", 0));
+        paletteSlider.value = PlayerPrefs.GetInt("Color", 0);
         resettable = true;
     }
 
@@ -167,8 +170,8 @@ public class MenuManager : MonoBehaviour
 
     public void SetChangeColor(int isAllowed)
     {
-        PlayerPrefs.SetInt("ChangeColor", isAllowed);
-        iconColorChange.GetComponent<Image>().sprite = iconsForColorChange[isAllowed];
+        PlayerPrefs.SetInt("ChangeColor", (int)isAllowed);
+        iconColorChange.GetComponent<Image>().sprite = iconsForColorChange[(int)isAllowed];
     }
 
     public void ToggleChangeColor()
@@ -187,5 +190,11 @@ public class MenuManager : MonoBehaviour
             return 0;
         }
         return value;
+    }
+
+    public void ChangePalette(float paletteIndex)
+    {
+        paletteIndex = paletteSlider.value;
+        gameObject.GetComponent<ColorChanger>().ChangePalette((int)paletteIndex);
     }
 }

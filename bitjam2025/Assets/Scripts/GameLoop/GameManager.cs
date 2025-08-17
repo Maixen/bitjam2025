@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     [SerializeField, Range(1, 3)] private int[] tutBadFlowerParts;
     [SerializeField, Range(1, 3f)] private int[] tutMaxMinigames;
     [SerializeField, Range(30,200)] private float[] tutRoundTimes;
+    [SerializeField] private GameObject tutorialEndScenePlant;
 
 
     private void Awake()
@@ -60,13 +61,19 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        wallAnimator.SetTrigger("Start");
+        Timer.instance.TogglePause();
         if (Timer.instance.isEndless)
         {
             Timer.instance.PauseOff();
             StartCoroutine(NewPlant());
-            wallAnimator.SetTrigger("Start");
             return;
         }
+        Invoke(nameof(TutorialInvokeAtStart), 1);
+    }
+
+    private void TutorialInvokeAtStart()
+    {
         StartNewTutorial(0);
     }
 
@@ -87,28 +94,64 @@ public class GameManager : MonoBehaviour
                 TutorialManager.instance.tutorialEnd += DialougeEndResolver;
                 TutorialManager.instance.tutorialChanged += TutorialResolver;
                 break;
+            case 2:
+                TutorialManager.instance.StartTutorial(TutorialManager.instance.tutorial3);
+                TutorialManager.instance.tutorialEnd += DialougeEndResolver;
+                TutorialManager.instance.tutorialChanged += TutorialResolver;
+                break;
+            case 3:
+                TutorialManager.instance.StartTutorial(TutorialManager.instance.tutorial4);
+                TutorialManager.instance.tutorialEnd += DialougeEndResolver;
+                TutorialManager.instance.tutorialChanged += TutorialResolver;
+                break;
+            case 4:
+                TutorialManager.instance.StartTutorial(TutorialManager.instance.tutorial5);
+                TutorialManager.instance.tutorialEnd += DialougeEndResolver;
+                TutorialManager.instance.tutorialChanged += TutorialResolver;
+                break;
+            case 5:
+                TutorialManager.instance.StartTutorial(TutorialManager.instance.tutorialEndScene);
+                TutorialManager.instance.tutorialEnd += StoryModeEndResolver;
+                TutorialManager.instance.tutorialChanged += TutorialResolver;
+                break;
         }
     }
 
     public void StartEndResolver()
     {
         StartCoroutine(NewPlant());
-        wallAnimator.SetTrigger("EndGame");
-        wallAnimator.SetTrigger("Start");
-        checklist_a.SetTrigger("Show");
-        checklist_a.ResetTrigger("Show");
+        if(!minigameIsPlayed)
+        {
+            checklist_a.ResetTrigger("Hide");
+            checklist_a.SetTrigger("Show");
+            checklist_a.ResetTrigger("Show");
+            checklist_a.SetTrigger("Show");
+        }
     }
 
     public void DialougeEndResolver()
     {
         checklist_a.SetTrigger("Hide");
-        checklist_a.SetTrigger("Show");
         int round = Timer.instance.GetRoundNum();
         FlowerCreation.instance.SetupFlowerCreation(tutBadFlowerChances[round], tutBadFlowerParts[round], tutMaxMinigames[round]);
         Timer.instance.ChangeRoundTime(tutRoundTimes[round]);
         Timer.instance.PauseOff();
         checklist_a.ResetTrigger("Hide");
+        checklist_a.SetTrigger("Show");
         checklist_a.ResetTrigger("Show");
+        checklist_a.SetTrigger("Show");
+    }
+
+    public void StoryModeEndResolver()
+    {
+        checklist_a.SetTrigger("Hide");
+        gameIsDone = true;
+        Invoke(nameof(GoodEnding),5);
+    }
+
+    private void GoodEnding()
+    {
+        InitiateGameEnd(true);
     }
 
     public void TutorialResolver()

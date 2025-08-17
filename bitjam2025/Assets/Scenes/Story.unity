@@ -1958,6 +1958,54 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6894535313878334559, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
+      propertyPath: tutorial3.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894535313878334559, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
+      propertyPath: tutorial4.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894535313878334559, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
+      propertyPath: tutorial5.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894535313878334559, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
+      propertyPath: tutorial3.Array.data[0]
+      value: 
+      objectReference: {fileID: 1225678637, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+    - target: {fileID: 6894535313878334559, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
+      propertyPath: tutorial3.Array.data[1]
+      value: 
+      objectReference: {fileID: 25439831, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+    - target: {fileID: 6894535313878334559, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
+      propertyPath: tutorial3.Array.data[2]
+      value: 
+      objectReference: {fileID: 597581058, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+    - target: {fileID: 6894535313878334559, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
+      propertyPath: tutorial3.Array.data[3]
+      value: 
+      objectReference: {fileID: 1836453483, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+    - target: {fileID: 6894535313878334559, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
+      propertyPath: tutorial3.Array.data[4]
+      value: 
+      objectReference: {fileID: 787958093, guid: fd3f732c033db814faf3c501f6629bab, type: 3}
+    - target: {fileID: 6894535313878334559, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
+      propertyPath: tutorial4.Array.data[0]
+      value: 
+      objectReference: {fileID: -502293028, guid: b9042ec0f81557c43843cafa4e7b833a, type: 3}
+    - target: {fileID: 6894535313878334559, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
+      propertyPath: tutorial5.Array.data[0]
+      value: 
+      objectReference: {fileID: -502293028, guid: b9042ec0f81557c43843cafa4e7b833a, type: 3}
+    - target: {fileID: 6894535313878334559, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
+      propertyPath: tutorialEndScene.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6894535313878334559, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
+      propertyPath: tutorialEndScene.Array.data[0]
+      value: 
+      objectReference: {fileID: -502293028, guid: b9042ec0f81557c43843cafa4e7b833a, type: 3}
     - target: {fileID: 7833482290827588793, guid: a94bd64dd5574f843b90cf1fa8a90a70, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5672,7 +5720,7 @@ MonoBehaviour:
   - {fileID: 899825726}
   - {fileID: 435967848}
   gameEndMessage: {fileID: 331739748}
-  gameWonSprite: {fileID: 1262876652, guid: 9182dcd5cd782e34d8b5fb36be8417e8, type: 3}
+  gameWonSprite: {fileID: 21300000, guid: 95be1604b88ef5947968c5cdeae7ed4e, type: 3}
   gameLostSprite: {fileID: -523473350, guid: 662541ff71192514689708bb5d627ff2, type: 3}
   continueButton: {fileID: 1258189692}
 --- !u!1 &987908681
@@ -11826,7 +11874,7 @@ MonoBehaviour:
   - 0.6
   - 0.7
   - 0.6
-  - 0.75
+  - 0.8
   tutBadFlowerParts: 0000000000000000020000000200000003000000
   tutMaxMinigames: 0000000000000000000000000200000003000000
   tutRoundTimes:
@@ -11835,6 +11883,7 @@ MonoBehaviour:
   - 80
   - 60
   - 120
+  tutorialEndScenePlant: {fileID: 0}
 --- !u!4 &1832372561
 Transform:
   m_ObjectHideFlags: 0
@@ -19432,6 +19481,7 @@ SceneRoots:
   - {fileID: 1798161065}
   - {fileID: 1490325687}
   - {fileID: 1832372561}
+  - {fileID: 387791441}
   - {fileID: 955614492}
   - {fileID: 1541543458}
   - {fileID: 814990623}
@@ -19444,7 +19494,6 @@ SceneRoots:
   - {fileID: 629576486}
   - {fileID: 400364766}
   - {fileID: 4291152886752519936}
-  - {fileID: 387791441}
   - {fileID: 1999907725}
   - {fileID: 1177782117}
   - {fileID: 658715571}
