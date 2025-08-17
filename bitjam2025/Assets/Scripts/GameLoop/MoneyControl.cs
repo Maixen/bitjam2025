@@ -17,6 +17,7 @@ public class MoneyControl : MonoBehaviour
     [SerializeField] private int streakamount;
     [SerializeField] private int totalEarnedMoney;
     [SerializeField] private int highestStreak;
+    [SerializeField] private int maxBonusAtStreak;
 
 
     private void Awake()
@@ -63,7 +64,10 @@ public class MoneyControl : MonoBehaviour
 
     private int MoneyGainedOnStreak()
     {
-        return moneyByCorrectGuess + moneyPerfectPlantBonus + moneyByCorrectStreak * streakamount;
+        int streakAmountCounted = streakamount;
+        if (streakAmountCounted > maxBonusAtStreak)
+            streakAmountCounted = maxBonusAtStreak;
+        return moneyByCorrectGuess + moneyPerfectPlantBonus + moneyByCorrectStreak * streakAmountCounted;
     }
     private void GivePlayerMoney(int amount)
     {

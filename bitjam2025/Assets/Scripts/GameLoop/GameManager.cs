@@ -275,6 +275,6 @@ public class GameManager : MonoBehaviour
         gameIsDone = true;
         wallAnimator.SetTrigger("GameEnd");
         endScreen.SetupEndScreen(wasWon,isLevelWithFollowUp,
-            new int[] {Timer.instance.GetTimeSurvived(),FlowerCheck.instance.GetFlowersWrong(),MoneyControl.Instance.GetBestStreak(),MoneyControl.Instance.GetMoneyEarnedInTotal()});
+            new int[] {Timer.instance.GetRoundNum(),FlowerCheck.instance.GetFlowersWrong(),MoneyControl.Instance.GetBestStreak(),MoneyControl.Instance.GetMoneyEarnedInTotal()});
     }
 }
