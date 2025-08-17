@@ -863,7 +863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameType: 2
   isActive: 0
-  checkListAnimator: {fileID: 0}
+  checkListAnimator: {fileID: 1770604885}
   basePos: {x: 0, y: 0, z: 0}
   maxWiggle: 0.02
   mayWiggle: 0
@@ -7092,7 +7092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameType: 1
   isActive: 0
-  checkListAnimator: {fileID: 0}
+  checkListAnimator: {fileID: 1770604885}
   basePos: {x: 0, y: 0, z: 0}
   maxWiggle: 0.02
   mayWiggle: 0
@@ -15106,7 +15106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minigameType: 0
   isActive: 0
-  checkListAnimator: {fileID: 0}
+  checkListAnimator: {fileID: 1770604885}
   basePos: {x: 0, y: 0, z: 0}
   maxWiggle: 0.02
   mayWiggle: 0
