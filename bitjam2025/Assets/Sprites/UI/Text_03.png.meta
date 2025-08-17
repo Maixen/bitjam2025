@@ -235,6 +235,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Text_03_6
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 208
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a01e19a7a20499040836afa5118aa075
+      internalID: -1273738375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Text_03_7
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 192
+        width: 23
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2790b9862092be54f8d1817b4633c918
+      internalID: 385332895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -252,6 +294,8 @@ TextureImporter:
       Text_03_3: -1238573885
       Text_03_4: -758402549
       Text_03_5: -339263750
+      Text_03_6: -1273738375
+      Text_03_7: 385332895
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

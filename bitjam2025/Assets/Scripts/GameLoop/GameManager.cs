@@ -53,6 +53,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject tutorialEndScenePlant;
     [SerializeField] private bool tutorialOn;
 
+    [SerializeField] private Animator camera_a;
+    [SerializeField] private GameObject ownFlower;
+
 
     private void Awake()
     {
@@ -152,12 +155,22 @@ public class GameManager : MonoBehaviour
         tutorialOn = false;
         FlowerCreation.instance.minigamesAllowed = false;
         gameIsDone = true;
-        Invoke(nameof(GoodEnding),5);
+        camera_a.SetTrigger("Zoom");
+        ownFlower.SetActive(true);
+        Invoke(nameof(ParticleAtFlower), 0.5f);
+        Invoke(nameof(GoodEnding), 1.83333333f);
     }
 
     private void GoodEnding()
     {
+        camera_a.SetTrigger("Zoom");
+        ParticleAtFlower();
         InitiateGameEnd(true);
+    }
+
+    private void ParticleAtFlower()
+    {
+        dump_ps.Play();
     }
 
     public void TutorialResolver()
