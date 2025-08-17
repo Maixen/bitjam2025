@@ -35,7 +35,11 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider sfxSlider;
 
+    [SerializeField] private Animator wallA;
+
     private bool onMainMenu;
+
+    private bool loadingStory;
 
     private bool resettable;
 
@@ -71,6 +75,14 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+    private void LoadGameScene()
+    {
+        if (loadingStory)
+            SceneManager.LoadSceneAsync(normalSceneName);
+        else
+            SceneManager.LoadSceneAsync(endlessSceneName);
+    }
+
     private void TurnOffAnimator()
     {
         animator.enabled = false;
@@ -78,12 +90,16 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(normalSceneName);
+        wallA.SetTrigger("GameEnd");
+        loadingStory = true;
+        Invoke(nameof(LoadGameScene), 3f);
     }
 
     public void EndlessMode()
     {
-        SceneManager.LoadScene(endlessSceneName);
+        loadingStory = false;
+        wallA.SetTrigger("GameEnd");
+        Invoke(nameof(LoadGameScene), 3);
     }
 
     public void Options()

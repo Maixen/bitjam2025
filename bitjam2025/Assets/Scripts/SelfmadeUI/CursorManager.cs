@@ -46,6 +46,8 @@ public class CursorManager : MonoBehaviour
             //print(hit.collider.gameObject.name);
             if (hit.collider == null)
                 return;
+            if (GameManager.Instance == null)
+                return;
             if (GameManager.Instance.gameIsDone)
             {
                 if (hit.collider.CompareTag("Restart"))

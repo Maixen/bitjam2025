@@ -27,6 +27,7 @@ public class ColorChanger : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        currentPalette = PlayerPrefs.GetInt("ColorIndex",0);
         if (PlayerPrefs.GetInt("ChangeColor", 0) == 0)
             paletteChangeAllowed = false;
         else
@@ -37,6 +38,7 @@ public class ColorChanger : MonoBehaviour
     {
         if (paletteIndex >= primaryColors.Count)
             return;
+        PlayerPrefs.SetInt("Color", paletteIndex);
         currentPalette = paletteIndex;
         primaryMaterial.SetColor("_TargetColor", primaryColors[currentPalette]);
         moneyMaterial.SetColor("_Color", primaryColors[currentPalette]);
@@ -45,7 +47,7 @@ public class ColorChanger : MonoBehaviour
         soulMaterial.SetColor("_Color", primaryColors[currentPalette]);
         backgroundMaterial.SetColor("_TargetColor", backgroundColors[currentPalette]);
 
-        hardSwap_audioSource.Play();
+        hardSwap_audioSource?.Play();
     }
 
     public void NextPalette()
@@ -81,6 +83,6 @@ public class ColorChanger : MonoBehaviour
         soulMaterial.SetColor("_Color", primaryMinigameColors[paletteindex]);
         backgroundMaterial.SetColor("_TargetColor", backgroundMinigameColors[paletteindex]);
 
-        lightSwap_audioSource.Play();
+        lightSwap_audioSource?.Play();
     }
 }

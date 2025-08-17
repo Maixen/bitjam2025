@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(flower_time);
         flower = FlowerCreation.instance.CreateFlower();
         flower.GetComponent<Animator>().SetTrigger("Drop");
-        plant_audioSource.Play(100);
+        plant_audioSource.PlayDelayed(0.1f);
         pipe_audioSource2.Play();
         yield return new WaitForSeconds(0.1f);
         plant_ps.Play();
@@ -139,7 +139,7 @@ public class GameManager : MonoBehaviour
         conveyor_audioSource.Play();
         checklist_a.SetTrigger("Swap");
         checklist_audioSource.Play();
-        checklist_audioSource.Play(200);
+        checklist_audioSource.PlayDelayed(0.2f);
     }
 
     public IEnumerator GetRidOfPlant(bool plantWasSold, bool correct)
