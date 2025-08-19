@@ -18,9 +18,17 @@ public class SetMinigameView : MonoBehaviour
     [SerializeField] private float maxWiggle;
     [SerializeField] private bool mayWiggle;
 
+    [SerializeField] private GameObject clickFlowerParticles;
+
+    private Vector2 targetSize;
+    private Vector2 defaultSize;
+
     private void Start()
     {
         basePos = transform.position;
+        clickFlowerParticles.SetActive(false);
+        defaultSize = transform.localScale;
+        targetSize = defaultSize;
     }
 
     public void ToggleMinigame()
@@ -31,12 +39,18 @@ public class SetMinigameView : MonoBehaviour
             return;
         ResetOtherButtons(ref GameManager.Instance.GetMinigameButtons());
         isActive = !isActive;
-        if(isActive)
+        if (isActive)
+        {
             checkListAnimator.SetTrigger("Hide");
+            clickFlowerParticles.SetActive(true);
+            targetSize = defaultSize * 1.5f;
+        }
         else
         {
             checkListAnimator.SetTrigger("Show");
             checkListAnimator.ResetTrigger("Hide");
+            clickFlowerParticles.SetActive(false);
+            targetSize = defaultSize;
         }
         FlowerData.instance?.ActivateMinigame((int)minigameType);
         ColorChanger.instance.SetMinigamePalette((int)minigameType, isActive);
@@ -76,8 +90,9 @@ public class SetMinigameView : MonoBehaviour
 
     private void Update()
     {
-        if (!mayWiggle)
-            return;
+        transform.localScale = Vector2.Lerp(transform.localScale, targetSize, Time.unscaledDeltaTime * 10f);
+
+        if (!mayWiggle) { clickFlowerParticles.SetActive(false); return; }
         transform.position = basePos + maxWiggle * Random.onUnitSphere;
         transform.position = new Vector3(transform.position.x, transform.position.y, 0);
     }

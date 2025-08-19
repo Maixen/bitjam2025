@@ -103,7 +103,7 @@ public class Timer : MonoBehaviour
                 clockRenderer.sprite = clockSprites[currentClockSprite];
                 if (currentClockSprite == 8)
                 {
-                    alarm_audioSource.volume = 0.5f;
+                    alarm_audioSource.volume = 1f;
                     alarm_audioSource.Play();
                 }
                 heavyTick_audioSource.Play();

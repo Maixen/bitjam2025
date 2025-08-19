@@ -55,6 +55,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator camera_a;
     [SerializeField] private GameObject ownFlower;
 
+    [SerializeField] private AudioSource breakThePlant_audioSource;
+
 
     private void Awake()
     {
@@ -248,6 +250,8 @@ public class GameManager : MonoBehaviour
     private void DumpPS()
     {
         dump_ps.Play();
+        breakThePlant_audioSource.Play();
+        plant_audioSource.Play();
     }
 
     public bool IsMinigamePlayed()
